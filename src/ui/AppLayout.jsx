@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="font-inter flex h-screen flex-col">
       <Header />
       <main>
         <Outlet />
