@@ -1,9 +1,13 @@
-function OrderOnline() {
-  return (
-    <button className="bg-color-1 text-color-2 hover:bg-color-3 rounded-full px-5 py-3.5 text-lg font-bold duration-300 hover:text-black">
-      Order online
-    </button>
-  );
+function OrderOnline({ device }) {
+  const base =
+    "rounded-full bg-color-1 px-5 py-3.5 text-lg font-bold text-color-2 duration-300 hover:bg-color-3 hover:text-black";
+  const style = {
+    mobile: "w-full",
+  };
+
+  const className = `${base} ${style[device]}`;
+
+  return <button className={className}>Order online</button>;
 }
 
 export default OrderOnline;

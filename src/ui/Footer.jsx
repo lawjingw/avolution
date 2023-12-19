@@ -4,7 +4,7 @@ import Logo from "./Logo";
 
 function Footer() {
   return (
-    <footer className="flex flex-col items-center space-y-7 bg-color-2 py-7">
+    <footer className="flex flex-col items-center space-y-10 bg-color-2 py-7">
       <div className="my-1">
         <Logo />
       </div>
