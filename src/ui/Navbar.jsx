@@ -53,7 +53,9 @@ export default function Navbar() {
                       >
                         <span
                           className={
-                            item.current && "border-b-4 border-color-1 pb-1"
+                            item.current
+                              ? "border-b-4 border-color-1 pb-1"
+                              : undefined
                           }
                         >
                           {item.name}
@@ -90,7 +92,9 @@ export default function Navbar() {
                   >
                     <span
                       className={
-                        item.current && "border-b-4 border-color-1 pb-1"
+                        item.current
+                          ? "border-b-4 border-color-1 pb-1"
+                          : undefined
                       }
                     >
                       {item.name}
