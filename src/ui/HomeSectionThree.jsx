@@ -10,8 +10,8 @@ function HomeSectionThree() {
     <section className="py-8 sm:py-16">
       <div
         ref={blockRef}
-        className={`mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 text-center opacity-0 transition-opacity duration-500 ease-in sm:flex-row ${
-          inView ? "opacity-100" : ""
+        className={`mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 text-center sm:flex-row sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
+          inView ? "sm:!opacity-100" : ""
         }`}
       >
         <div className="mb-1 mt-7 basis-1/4">

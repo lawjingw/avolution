@@ -11,8 +11,8 @@ function HomeSectionTwo() {
     <section className="bg-color-9 py-12 sm:py-24">
       <div
         ref={blockRef}
-        className={`mx-auto flex max-w-6xl flex-col items-center justify-between space-y-10 px-4 opacity-0 transition-opacity duration-500 ease-in sm:flex-row sm:space-y-0 ${
-          inView ? "opacity-100" : ""
+        className={`mx-auto flex max-w-6xl flex-col items-center justify-between space-y-10 px-4 sm:flex-row sm:space-y-0 sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
+          inView ? "sm:!opacity-100" : ""
         }`}
       >
         <div className="flex basis-1/3 flex-col items-center text-center">

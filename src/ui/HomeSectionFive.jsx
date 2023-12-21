@@ -10,8 +10,8 @@ function HomeSectionFive() {
     <section className="bg-color-9 py-8 sm:py-16">
       <div
         ref={blockRef}
-        className={`mx-auto flex flex-col items-center justify-between gap-6 opacity-0 transition-opacity duration-500 ease-in sm:flex-row ${
-          inView ? "opacity-100" : ""
+        className={`mx-auto flex flex-col items-center justify-between gap-6 sm:flex-row sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
+          inView ? "sm:!opacity-100" : ""
         }`}
       >
         <div className="basis-1/4 px-4">

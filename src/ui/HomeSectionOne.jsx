@@ -13,8 +13,8 @@ function HomeSectionOne() {
         className="mx-auto flex max-w-6xl flex-col-reverse items-center justify-between gap-8 px-4 sm:flex-row"
       >
         <div
-          className={`flex basis-1/2 -translate-x-3/4 flex-col items-center opacity-0 transition-transform duration-500 ease-in ${
-            inView ? "translate-x-0 opacity-100" : ""
+          className={`flex basis-1/2 flex-col items-center sm:-translate-x-3/4 sm:opacity-0 sm:transition-transform sm:duration-500 sm:ease-in ${
+            inView ? "sm:!translate-x-0 sm:!opacity-100" : ""
           } `}
         >
           <img
@@ -24,8 +24,8 @@ function HomeSectionOne() {
           />
         </div>
         <div
-          className={`flex basis-1/2 translate-x-3/4 flex-col items-center py-2 opacity-0 transition-transform duration-500 ease-in sm:items-start ${
-            inView ? "-translate-x-0 opacity-100" : ""
+          className={`flex basis-1/2 flex-col items-center py-2 sm:translate-x-3/4 sm:items-start sm:opacity-0 sm:transition-transform sm:duration-500 sm:ease-in ${
+            inView ? "sm:!translate-x-0 sm:!opacity-100" : ""
           }`}
         >
           <h4 className="mb-11 mt-5 text-xl leading-[1.1] text-white lg:text-3xl">
