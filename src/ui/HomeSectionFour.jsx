@@ -29,7 +29,7 @@ function HomeSectionFour() {
             vitamins and nutrients! All our dishes are created based on this
             beauty.
           </p>
-          <button className="mx-auto my-2 mt-6 rounded-full border-2 border-color-1 px-8 py-5 font-inter text-lg text-color-1 duration-300">
+          <button className="mx-auto my-2 mt-6 rounded-full border-2 border-color-1 px-8 py-5 font-inter text-lg text-color-1 sm:mx-0">
             Order online
           </button>
         </div>
