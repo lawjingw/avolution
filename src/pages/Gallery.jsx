@@ -1,7 +1,9 @@
+import GalleryHeader from "../ui/GalleryHeader";
+
 function Gallery() {
   return (
     <div>
-      <h1>Gallery</h1>
+      <GalleryHeader />
     </div>
   );
 }

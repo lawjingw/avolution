@@ -1,7 +1,19 @@
+import { useInView } from "react-intersection-observer";
+
 function HomeSectionFour() {
+  const { ref: blockRef, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
   return (
     <section className="py-10 sm:py-20">
-      <div className="mx-auto flex max-w-xl flex-col items-center py-2 text-center">
+      <div
+        ref={blockRef}
+        className={`mx-auto flex max-w-xl flex-col items-center py-2 text-center sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
+          inView ? "sm:!opacity-100" : ""
+        }`}
+      >
         <h4 className="mt-7 text-xl text-color-6 lg:text-3xl">
           &quot;A must-visit place on the culinary map of the city. It&apos;s
           healthy, fit, and, most importantly, very tasty. Besides salads and
