@@ -1,8 +1,8 @@
 function HomeHeader() {
   return (
-    <header className="bg-white bg-[url('https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/wave.png')] bg-cover bg-fixed bg-top py-16 sm:py-32">
+    <header className="h-screen bg-white bg-[url('https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/wave.png')] bg-cover bg-fixed bg-top pb-16 pt-32 sm:h-auto sm:py-32">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 sm:flex-row">
-        <div className="flex basis-1/2 flex-col items-center px-1 sm:items-start">
+        <div className="flex basis-1/2 flex-col items-center justify-center px-1 sm:items-start">
           <h1 className="mt-7 text-5xl leading-[1.1] text-color-6 lg:text-7xl">
             The Green Way to Eat, <br />
             <span className="text-color-1">AVOLUTION!</span>

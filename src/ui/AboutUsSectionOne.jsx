@@ -1,9 +1,9 @@
 function AboutUsSectionOne() {
   return (
     <section className="py-16 sm:py-16">
-      <div className="mx-auto flex max-w-6xl flex-col-reverse items-center justify-between gap-8 px-4 sm:flex-row">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 sm:flex-row">
         <div className="flex basis-1/2 flex-col items-center py-2 sm:items-start">
-          <h2 className="mb-6 text-3xl leading-[1.1] text-color-6 lg:text-5xl">
+          <h2 className="mb-6 px-8 text-center text-3xl leading-[1.1] text-color-6 sm:px-0 sm:text-start lg:text-5xl">
             Healthy and colorful salads{" "}
             <span className="text-color-1">every day!</span>
           </h2>

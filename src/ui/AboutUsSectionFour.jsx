@@ -2,7 +2,7 @@ function AboutUsSectionFour() {
   return (
     <section className="relative">
       <video
-        className="absolute -z-10 w-full object-center"
+        className="absolute -z-10 h-full w-full object-cover"
         autoPlay
         loop
         muted
@@ -13,7 +13,7 @@ function AboutUsSectionFour() {
         />
       </video>
       <div className="bg-gray-800 bg-opacity-60">
-        <div className="mx-auto flex max-w-lg flex-col items-center text-center sm:py-44">
+        <div className="mx-auto flex max-w-lg flex-col items-center py-36 text-center sm:py-44">
           <h2 className="mb-6 text-3xl font-bold leading-[1.1] lg:text-5xl">
             <span className="text-color-1">AVO</span>LUTION
           </h2>
