@@ -10,7 +10,7 @@ function HomeHeader() {
           <h4 className="mb-4 mt-9 text-xl leading-[1.1] text-color-6 lg:text-3xl">
             Enjoy our avocado specialties from Monday to Sunday!
           </h4>
-          <button className="my-2 rounded-full bg-color-0 px-8 py-5 font-inter text-lg text-white duration-300">
+          <button className="my-2 rounded-full bg-color-0 px-8 py-5 font-inter text-lg text-white">
             Order online
           </button>
         </div>

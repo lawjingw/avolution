@@ -1,7 +1,11 @@
+import ContactHeader from "../ui/ContactHeader";
+import ContactSectionOne from "../ui/ContactSectionOne";
+
 function Contact() {
   return (
-    <div>
-      <h1>Contact</h1>
+    <div className="font-sora">
+      <ContactHeader />
+      <ContactSectionOne />
     </div>
   );
 }

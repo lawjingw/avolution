@@ -24,6 +24,11 @@ export default {
         "color-10": "#A1583B",
         "color-11": "#93C379",
       },
+      boxShadow: {
+        input: "inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)",
+        "input-error":
+          "inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(169, 68, 66)",
+      },
     },
   },
   plugins: [],

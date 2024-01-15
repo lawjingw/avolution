@@ -3,7 +3,7 @@ import GallerySectionOne from "../ui/GallerySectionOne";
 
 function Gallery() {
   return (
-    <div>
+    <div className="font-sora">
       <GalleryHeader />
       <GallerySectionOne />
     </div>
