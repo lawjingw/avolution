@@ -15,7 +15,7 @@ function ContactSectionTwo() {
     <section className="bg-color-4 py-8 sm:py-16">
       <div
         ref={blockRef}
-        className={`mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 sm:flex-row sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
+        className={`mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
           inView ? "sm:!opacity-100" : ""
         }`}
       >

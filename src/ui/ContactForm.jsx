@@ -31,7 +31,7 @@ function ContactForm() {
       )}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-8"
+        className="grid auto-cols-max grid-cols-1 sm:grid-cols-2 sm:gap-8"
       >
         <FormRow lable="First Name" errors={errors}>
           <Input
@@ -83,7 +83,7 @@ function ContactForm() {
             })}
           />
         </FormRow>
-        <FormRow lable="Message" className="col-span-2" errors={errors}>
+        <FormRow lable="Message" className="sm:col-span-2" errors={errors}>
           <Input
             type="textarea"
             id="message"
