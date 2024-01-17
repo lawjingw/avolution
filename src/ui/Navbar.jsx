@@ -1,16 +1,16 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import OrderOnline from "./OrderOnline";
 import { SlArrowRight } from "react-icons/sl";
 import { Fragment } from "react";
 
 const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "About us", href: "/aboutUs", current: false },
-  { name: "Gallery", href: "/gallery", current: false },
-  { name: "Contact", href: "/contact", current: false },
+  { name: "Home", href: "/" },
+  { name: "About us", href: "/aboutUs" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -51,22 +51,21 @@ export default function Navbar() {
                 <div className="hidden sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link
+                      <NavLink
                         key={item.name}
                         to={item.href}
                         className="rounded-full px-5 py-3.5 text-lg font-bold transition duration-300 hover:bg-color-3"
-                        aria-current={item.current ? "page" : undefined}
                       >
-                        <span
-                          className={
-                            item.current
-                              ? "border-b-4 border-color-1 pb-1"
-                              : undefined
-                          }
-                        >
-                          {item.name}
-                        </span>
-                      </Link>
+                        {({ isActive }) => (
+                          <span
+                            className={
+                              isActive ? "border-b-4 border-color-1 pb-1" : ""
+                            }
+                          >
+                            {item.name}
+                          </span>
+                        )}
+                      </NavLink>
                     ))}
                   </div>
                 </div>
