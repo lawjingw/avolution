@@ -1,4 +1,5 @@
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 function HomeSectionFive() {
   const { ref: blockRef, inView } = useInView({
@@ -30,9 +31,12 @@ function HomeSectionFive() {
             is it worth it? Every day, we will deliver your meals according to
             your diet and culinary preferences. Contact us for more details.
           </h4>
-          <button className="my-2 rounded-full bg-color-0 px-8 py-5 font-inter text-lg text-white duration-300">
+          <Link
+            to="orderOnline"
+            className="my-2 rounded-full bg-color-0 px-8 py-5 font-inter text-lg text-white duration-300"
+          >
             Order online
-          </button>
+          </Link>
         </div>
         <div className="basis-1/4 px-4">
           <img

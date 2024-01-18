@@ -1,4 +1,5 @@
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 function HomeSectionFour() {
   const { ref: blockRef, inView } = useInView({
@@ -29,9 +30,12 @@ function HomeSectionFour() {
             vitamins and nutrients! All our dishes are created based on this
             beauty.
           </p>
-          <button className="mx-auto my-2 mt-6 rounded-full border-2 border-color-1 px-8 py-5 font-inter text-lg text-color-1 sm:mx-0">
+          <Link
+            to="orderOnline"
+            className="mx-auto my-2 mt-6 rounded-full border-2 border-color-1 px-8 py-5 font-inter text-lg text-color-1 sm:mx-0"
+          >
             Order online
-          </button>
+          </Link>
         </div>
         <div
           className={`flex basis-1/2 flex-col items-center sm:translate-x-3/4 sm:opacity-0 sm:transition-transform sm:duration-500 sm:ease-in ${

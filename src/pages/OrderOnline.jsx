@@ -1,7 +1,9 @@
+import OrderOnlineHeader from "../ui/OrderOnlineHeader";
+
 function OrderOnline() {
   return (
     <div>
-      <h1>OrderOnline</h1>
+      <OrderOnlineHeader />
     </div>
   );
 }

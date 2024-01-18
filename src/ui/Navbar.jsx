@@ -2,9 +2,9 @@ import { Disclosure, Transition } from "@headlessui/react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
-import OrderOnline from "./OrderOnline";
 import { SlArrowRight } from "react-icons/sl";
 import { Fragment } from "react";
+import OrderOnlineButton from "./OrderOnlineButton";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -70,7 +70,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div className="hidden sm:block">
-                  <OrderOnline />
+                  <OrderOnlineButton />
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function Navbar() {
                   </Disclosure.Button>
                 ))}
                 <div className="mx-2 border-t-2 pt-3">
-                  <OrderOnline device="mobile" />
+                  <OrderOnlineButton device="mobile" />
                 </div>
               </div>
             </Disclosure.Panel>

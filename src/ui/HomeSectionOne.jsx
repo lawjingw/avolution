@@ -1,4 +1,5 @@
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 function HomeSectionOne() {
   const { ref: blockRef, inView } = useInView({
@@ -41,9 +42,12 @@ function HomeSectionOne() {
             food. How is this possible? We opt for natural and fresh ingredients
             and unique spices. At its heart is the avocado!
           </p>
-          <button className="my-2 rounded-full border-2 border-white px-8 py-5 font-inter text-lg text-white duration-300">
+          <Link
+            to="orderOnline"
+            className="my-2 rounded-full border-2 border-white px-8 py-5 font-inter text-lg text-white duration-300"
+          >
             Order online
-          </button>
+          </Link>
         </div>
       </div>
     </section>

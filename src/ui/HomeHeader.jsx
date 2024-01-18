@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function HomeHeader() {
   return (
     <header className="h-screen bg-white bg-[url('https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/wave.png')] bg-cover bg-fixed bg-top pb-16 pt-32 sm:h-auto sm:py-32">
@@ -10,9 +12,12 @@ function HomeHeader() {
           <h4 className="mb-4 mt-9 text-xl leading-[1.1] text-color-6 lg:text-3xl">
             Enjoy our avocado specialties from Monday to Sunday!
           </h4>
-          <button className="my-2 rounded-full bg-color-0 px-8 py-5 font-inter text-lg text-white">
+          <Link
+            to="orderOnline"
+            className="my-2 rounded-full bg-color-0 px-8 py-5 font-inter text-lg text-white"
+          >
             Order online
-          </button>
+          </Link>
         </div>
         <div className="basis-1/2">
           <img
