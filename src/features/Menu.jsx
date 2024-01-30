@@ -8,22 +8,11 @@ export default function Menu() {
   return (
     <section className="bg-color-2 pb-16 pt-32 sm:py-16">
       <div className="mx-auto max-w-6xl px-4">
-        <div>
-          <h1>Appetizers</h1>
-          <MenuCategory menu={menu} category="appetizer" />
-        </div>
-        <div>
-          <h1>Soups</h1>
-        </div>
-        <div>
-          <h1>Main courses</h1>
-        </div>
-        <div>
-          <h1>Desserts</h1>
-        </div>
-        <div>
-          <h1>Drinks</h1>
-        </div>
+        <MenuCategory menu={menu} category="appetizer" />
+        <MenuCategory menu={menu} category="soup" />
+        <MenuCategory menu={menu} category="main course" />
+        <MenuCategory menu={menu} category="dessert" />
+        <MenuCategory menu={menu} category="drink" />
       </div>
     </section>
   );
