@@ -1,7 +1,6 @@
 import { FaAward, FaWheatAwn, FaPepperHot } from "react-icons/fa6";
 
 function ImageLabel({ labels }) {
-  console.log(labels);
   return (
     <div className="flex justify-center space-x-2">
       {labels &&

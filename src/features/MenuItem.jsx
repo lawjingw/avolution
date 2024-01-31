@@ -2,9 +2,8 @@ import { formatCurrency } from "../utils/helpers";
 import ImageLabel from "./ImageLabel";
 
 function MenuItem({ item }) {
-  console.log(item);
   return (
-    <div className="basis-64  overflow-hidden rounded-3xl bg-white text-center">
+    <div className="basis-64 overflow-hidden rounded-3xl bg-white text-center">
       <div className="h-56">
         <img src={item.image} alt="image" className="h-full w-full" />
       </div>
