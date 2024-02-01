@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
 
-function CapsuleItem({ name, children, selected = false }) {
-  const [active, setActive] = useState(selected);
+function CapsuleItem({ name, children }) {
+  const [active, setActive] = useState(false);
 
   const handleActive = () => {
     setActive(true);

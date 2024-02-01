@@ -1,4 +1,4 @@
-import Menu from "../features/Menu";
+import Menu from "../features/menu/Menu";
 import OrderOnlineHeader from "../ui/OrderOnlineHeader";
 
 function OrderOnline() {

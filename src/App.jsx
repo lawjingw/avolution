@@ -6,7 +6,7 @@ import AboutUs from "./pages/AboutUs";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import OrderOnline from "./pages/OrderOnline";
-import { menuLoader } from "./features/Menu";
+import { menuLoader } from "./features/menu/Menu";
 
 let router = createBrowserRouter([
   {

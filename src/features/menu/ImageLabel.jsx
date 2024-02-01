@@ -1,4 +1,10 @@
-import { FaAward, FaWheatAwn, FaPepperHot } from "react-icons/fa6";
+import {
+  FaAward,
+  FaWheatAwn,
+  FaPepperHot,
+  FaStar,
+  FaSeedling,
+} from "react-icons/fa6";
 
 function ImageLabel({ labels }) {
   return (
@@ -17,7 +23,11 @@ function ImageLabel({ labels }) {
                 <FaWheatAwn className="inline text-yellow-700" />
               )}
               {label === "spicy" && (
-                <FaPepperHot className="inline text-red-600" />
+                <FaPepperHot className="inline text-red-500" />
+              )}
+              {label === "new" && <FaStar className="inline text-blue-500" />}
+              {label === "vegan" && (
+                <FaSeedling className="inline text-green-500" />
               )}
 
               <span className="inline-block text-xs capitalize">{label}</span>
