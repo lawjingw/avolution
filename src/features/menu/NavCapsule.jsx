@@ -3,7 +3,7 @@ import CapsuleItem from "./CapsuleItem";
 function NavCapsule() {
   return (
     <div className="sticky top-4 rounded-full bg-white shadow-lg">
-      <ul className="flex space-x-2 p-2">
+      <ul className="flex space-x-2 px-2 py-4">
         <CapsuleItem name="appetizer">Appetizer</CapsuleItem>
         <CapsuleItem name="soup">Soup</CapsuleItem>
         <CapsuleItem name="mainCourse">Main Course</CapsuleItem>

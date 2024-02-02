@@ -6,7 +6,10 @@ import { HiXMark } from "react-icons/hi2";
 function Modal({ children }) {
   const [openName, setOpenName] = useState("");
 
-  const open = setOpenName;
+  //const open = setOpenName;
+  const open = () => {
+    console.log("open");
+  };
   const close = () => setOpenName("");
 
   return (

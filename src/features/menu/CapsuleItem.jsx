@@ -13,19 +13,18 @@ function CapsuleItem({ name, children }) {
   };
 
   return (
-    <li
-      className={`rounded-full bg-color-1 px-6 py-3 hover:cursor-pointer hover:bg-opacity-100 ${
-        active ? "bg-opacity-100" : "bg-opacity-10"
-      }`}
-    >
+    <li>
       <Link
         to={name}
         smooth={true}
-        duration={800}
+        duration={500}
         spy={true}
         offset={-200}
         onSetActive={handleActive}
         onSetInactive={handleInActive}
+        className={`hover: cursor-pointer rounded-full bg-color-1 px-6 py-3 hover:bg-opacity-100 ${
+          active ? "bg-opacity-100" : "bg-opacity-10"
+        }`}
       >
         {children}
       </Link>
