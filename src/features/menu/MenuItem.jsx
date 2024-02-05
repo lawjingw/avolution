@@ -2,6 +2,7 @@ import Button from "../../ui/Button";
 import Modal from "../../ui/Modal";
 import { formatCurrency } from "../../utils/helpers";
 import ImageLabel from "./ImageLabel";
+import Addons from "./Addons";
 
 function MenuItem({ item }) {
   return (
@@ -17,11 +18,14 @@ function MenuItem({ item }) {
         <ImageLabel labels={item.labels} />
         <p className="text-lg">{formatCurrency(item.price)}</p>
         <Modal>
-          <Modal.Open opens="addOns">
-            <Button>Order</Button>
-          </Modal.Open>
+          <Modal.Open
+            opens="addOns"
+            renderItem={(handleClick) => (
+              <Button onClick={handleClick}>Order</Button>
+            )}
+          />
           <Modal.Window name="addOns">
-            <div>AddOns</div>
+            <Addons item={item} />
           </Modal.Window>
         </Modal>
       </div>
