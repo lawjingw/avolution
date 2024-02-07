@@ -1,9 +1,9 @@
 import AddonItem from "./AddonItem";
 
-function AddonItems({ addons }) {
+function AddonItems({ additions }) {
   return (
-    <ul className="my-4 flex flex-col justify-between space-y-2">
-      {addons.map((item) => {
+    <ul className="flex flex-col justify-between space-y-4">
+      {additions.map((item) => {
         return <AddonItem item={item} key={item.id} />;
       })}
     </ul>

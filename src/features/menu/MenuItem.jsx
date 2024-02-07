@@ -17,17 +17,21 @@ function MenuItem({ item }) {
       <div className="mx-4 mb-4 flex flex-col space-y-4">
         <ImageLabel labels={item.labels} />
         <p className="text-lg">{formatCurrency(item.price)}</p>
-        <Modal>
-          <Modal.Open
-            opens="addOns"
-            renderItem={(handleClick) => (
-              <Button onClick={handleClick}>Order</Button>
-            )}
-          />
-          <Modal.Window name="addOns">
-            <Addons item={item} />
-          </Modal.Window>
-        </Modal>
+        {item.additions.length === 0 ? (
+          <Button>Order</Button>
+        ) : (
+          <Modal>
+            <Modal.Open
+              opens="addOns"
+              renderItem={(handleClick) => (
+                <Button onClick={handleClick}>Order</Button>
+              )}
+            />
+            <Modal.Window name="addOns">
+              <Addons item={item} />
+            </Modal.Window>
+          </Modal>
+        )}
       </div>
     </div>
   );
