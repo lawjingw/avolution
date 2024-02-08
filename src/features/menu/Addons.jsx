@@ -20,14 +20,14 @@ function Addons({ item }) {
   };
 
   return (
-    <div className="flex w-[600px] flex-col justify-between space-y-6">
+    <div className="flex w-[600px] flex-col justify-between space-y-6 px-6 pt-6">
       <h2 className="text-3xl font-semibold">{item.name}</h2>
-      <div className="w-[648px] self-center bg-stone-200 px-6 py-4">
+      <div className="w-[600px] self-center bg-stone-200 px-6 py-4">
         <h3 className="text-xl">Addons&#32;&#40;Maximum&#58;&#32;2&#41;</h3>
       </div>
       <AddonItems additions={item.additions} />
-      <div className="flex items-center justify-between">
-        <div className="flex py-4">
+      <div className="flex w-[600px] items-center justify-between self-center px-6 py-4 shadow-[0_-3px_6px_rgba(51,51,51,0.2)]">
+        <div className="flex">
           <HalfRoundButton side="l" onClick={decreaseQuantity}>
             -
           </HalfRoundButton>

@@ -40,7 +40,7 @@ function Window({ name, children }) {
     <div className="fixed inset-0 z-10 h-screen w-full bg-black/75 backdrop-blur-sm">
       <div
         ref={modalRef}
-        className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-visible bg-white p-6 shadow-lg"
+        className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg"
       >
         <button onClick={close} className="absolute right-3 top-3">
           <HiXMark className="stroke-1 text-lg" />
