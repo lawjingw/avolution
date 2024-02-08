@@ -16,7 +16,7 @@ function Addons({ item }) {
   };
 
   const decreaseQuantity = () => {
-    setQuantity(quantity - 1);
+    if (quantity > 1) setQuantity(quantity - 1);
   };
 
   return (
@@ -31,7 +31,9 @@ function Addons({ item }) {
           <HalfRoundButton side="l" onClick={decreaseQuantity}>
             -
           </HalfRoundButton>
-          <p className="inline-block border px-6 py-1 text-lg">{quantity}</p>
+          <p className="inline-block w-14 border-y border-stone-300 py-1.5 text-center">
+            {quantity}
+          </p>
           <HalfRoundButton side="r" onClick={increaseQuantity}>
             +
           </HalfRoundButton>
