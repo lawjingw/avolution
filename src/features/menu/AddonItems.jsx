@@ -1,10 +1,17 @@
 import AddonItem from "./AddonItem";
 
-function AddonItems({ additions }) {
+function AddonItems({ additions, onIncreaseAddons, onDecreaseAddons }) {
   return (
     <ul className="flex flex-col justify-between space-y-4 py-1">
-      {additions.map((item) => {
-        return <AddonItem item={item} key={item.id} />;
+      {additions.map((addition) => {
+        return (
+          <AddonItem
+            addition={addition}
+            key={addition.id}
+            onIncreaseAddons={onIncreaseAddons}
+            onDecreaseAddons={onDecreaseAddons}
+          />
+        );
       })}
     </ul>
   );
