@@ -3,8 +3,24 @@ import Modal from "../../ui/Modal";
 import { formatCurrency } from "../../utils/helpers";
 import ImageLabel from "./ImageLabel";
 import Addons from "./Addons";
+import { useDispatch } from "react-redux";
+import { addItem } from "../cart/cartSlice";
 
 function MenuItem({ item }) {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(
+      addItem({
+        itemId: item.id,
+        name: item.name,
+        unitPrice: item.price,
+        quantity: "1",
+        totalPrice: item.price,
+      }),
+    );
+  };
+
   return (
     <div className="flex basis-64 flex-col justify-between overflow-hidden rounded-3xl bg-white text-center">
       <div className="mb-5">
@@ -18,7 +34,7 @@ function MenuItem({ item }) {
         <ImageLabel labels={item.labels} />
         <p className="text-lg">{formatCurrency(item.price)}</p>
         {item.additions.length === 0 ? (
-          <Button>Order</Button>
+          <Button onClick={handleAddToCart}>Order</Button>
         ) : (
           <Modal>
             <Modal.Open

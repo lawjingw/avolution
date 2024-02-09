@@ -16,13 +16,18 @@ function AddonItem({ addition, onIncreaseAddons, onDecreaseAddons }) {
     onIncreaseAddons(addon);
   };
 
+  const handleDecreaseAddons = () => {
+    onDecreaseAddons(addition.id);
+    setQuantity(quantity - 1);
+  };
+
   return (
     <li key={addition.id} className="flex items-center justify-between">
       <span>{addition.name}</span>
       <div className="space-x-3">
         {quantity > 0 && (
           <>
-            <RoundButton>-</RoundButton>
+            <RoundButton onClick={handleDecreaseAddons}>-</RoundButton>
             <span>{quantity}</span>
           </>
         )}

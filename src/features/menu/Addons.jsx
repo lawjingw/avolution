@@ -3,12 +3,20 @@ import AddonItems from "./AddonItems";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../../ui/Button";
 import HalfRoundButton from "./HalfRoundButton";
+import { useDispatch } from "react-redux";
+import { addItem } from "../cart/cartSlice";
 
 function Addons({ item }) {
+  const dispatch = useDispatch();
   const [addons, setAddons] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  console.log(addons);
 
-  const addonsPrice = 0;
+  const addonsPrice = addons.reduce(
+    (acc, cur) => acc + cur.price * cur.quantity,
+    0,
+  );
+
   const totalPrice = quantity * item.price + addonsPrice;
 
   const increaseAddons = (addition) => {
@@ -28,7 +36,23 @@ function Addons({ item }) {
   };
 
   const decreaseAddons = (id) => {
-    setAddons(addons.filter((addition) => addition.id !== id));
+    const existingItem = addons.find((item) => item.id === id);
+    let newAddons = [];
+    const newQuantity = existingItem.quantity - 1;
+
+    if (newQuantity > 0) {
+      newAddons = addons.map((addon) => {
+        if (id === addon.id) {
+          return { ...addon, quantity: newQuantity };
+        } else {
+          return addon;
+        }
+      });
+    } else {
+      newAddons = addons.filter((addition) => addition.id !== id);
+    }
+
+    setAddons(newAddons);
   };
 
   const increaseQuantity = () => {
@@ -37,6 +61,19 @@ function Addons({ item }) {
 
   const decreaseQuantity = () => {
     if (quantity > 1) setQuantity(quantity - 1);
+  };
+
+  const handleAddToCart = () => {
+    dispatch(
+      addItem({
+        itemId: item.id,
+        name: item.name,
+        unitPrice: item.price,
+        quantity: quantity,
+        addons: addons,
+        totalPrice: totalPrice,
+      }),
+    );
   };
 
   return (
@@ -63,7 +100,7 @@ function Addons({ item }) {
           </HalfRoundButton>
         </div>
         <p className="text-lg">{formatCurrency(totalPrice)}</p>
-        <Button>Add to cart</Button>
+        <Button onClick={handleAddToCart}>Add to cart</Button>
       </div>
     </div>
   );
