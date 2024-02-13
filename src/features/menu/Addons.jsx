@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AddonItems from "./AddonItems";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../../ui/Button";
 import HalfRoundButton from "./HalfRoundButton";
 import { useDispatch } from "react-redux";
 import { addItem } from "../cart/cartSlice";
+import { AddonsContext } from "./AddonsContext";
+import { ModalContext } from "../../ui/ModalContext";
 
 function Addons({ item }) {
-  const dispatch = useDispatch();
-  const [addons, setAddons] = useState([]);
-  const [quantity, setQuantity] = useState(1);
-  console.log(addons);
+  const { close } = useContext(ModalContext);
 
+  const dispatch = useDispatch();
+  const additions = item.additions;
+  const [quantity, setQuantity] = useState(1);
+
+  const [addons, setAddons] = useState([]);
+  const addonsQuantity = addons.reduce((acc, cur) => acc + cur.quantity, 0);
+  const isMaxium = addonsQuantity === 2;
   const addonsPrice = addons.reduce(
     (acc, cur) => acc + cur.price * cur.quantity,
     0,
@@ -27,7 +33,7 @@ function Addons({ item }) {
     else
       newAddons = addons.map((addon) => {
         if (addition.id === addon.id) {
-          return { ...addon, quantity: addition.quantity + quantity };
+          return { ...addon, quantity: addon.quantity + 1 };
         } else {
           return addon;
         }
@@ -55,6 +61,9 @@ function Addons({ item }) {
     setAddons(newAddons);
   };
 
+  const findAddonQuantityById = (id) =>
+    addons.find((item) => item.id === id)?.quantity;
+
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
   };
@@ -74,6 +83,7 @@ function Addons({ item }) {
         totalPrice: totalPrice,
       }),
     );
+    close();
   };
 
   return (
@@ -82,11 +92,17 @@ function Addons({ item }) {
       <div className="w-[600px] self-center bg-stone-200 px-6 py-4">
         <h3 className="text-xl">Addons&#32;&#40;Maximum&#58;&#32;2&#41;</h3>
       </div>
-      <AddonItems
-        additions={item.additions}
-        onIncreaseAddons={increaseAddons}
-        onDecreaseAddons={decreaseAddons}
-      />
+      <AddonsContext.Provider
+        value={{
+          additions,
+          isMaxium,
+          increaseAddons,
+          decreaseAddons,
+          findAddonQuantityById,
+        }}
+      >
+        <AddonItems />
+      </AddonsContext.Provider>
       <div className="flex w-[600px] items-center justify-between self-center px-6 py-4 shadow-[0_-3px_6px_rgba(51,51,51,0.2)]">
         <div className="flex">
           <HalfRoundButton side="l" onClick={decreaseQuantity}>

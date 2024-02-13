@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import RoundButton from "./RoundButton";
+import { AddonsContext } from "./AddonsContext";
 
-function AddonItem({ addition, onIncreaseAddons, onDecreaseAddons }) {
-  const [quantity, setQuantity] = useState(0);
+function AddonItem({ addition }) {
+  const { isMaxium, increaseAddons, decreaseAddons, findAddonQuantityById } =
+    useContext(AddonsContext);
+
+  const quantity = findAddonQuantityById(addition.id);
 
   const handleIncreaseAddons = () => {
-    const currentQuantity = quantity + 1;
     const addon = {
       id: addition.id,
       name: addition.name,
       price: addition.price,
       quantity: 1,
     };
-    setQuantity(currentQuantity);
-    onIncreaseAddons(addon);
+    increaseAddons(addon);
   };
 
   const handleDecreaseAddons = () => {
-    onDecreaseAddons(addition.id);
-    setQuantity(quantity - 1);
+    decreaseAddons(addition.id);
   };
 
   return (
@@ -31,7 +32,9 @@ function AddonItem({ addition, onIncreaseAddons, onDecreaseAddons }) {
             <span>{quantity}</span>
           </>
         )}
-        <RoundButton onClick={handleIncreaseAddons}>+</RoundButton>
+        <RoundButton onClick={handleIncreaseAddons} disabled={isMaxium}>
+          +
+        </RoundButton>
       </div>
     </li>
   );

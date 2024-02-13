@@ -1,17 +1,13 @@
+import { useContext } from "react";
 import AddonItem from "./AddonItem";
+import { AddonsContext } from "./AddonsContext";
 
-function AddonItems({ additions, onIncreaseAddons, onDecreaseAddons }) {
+function AddonItems() {
+  const {additions} = useContext(AddonsContext);
   return (
     <ul className="flex flex-col justify-between space-y-4 py-1">
       {additions.map((addition) => {
-        return (
-          <AddonItem
-            addition={addition}
-            key={addition.id}
-            onIncreaseAddons={onIncreaseAddons}
-            onDecreaseAddons={onDecreaseAddons}
-          />
-        );
+        return <AddonItem addition={addition} key={addition.id} />;
       })}
     </ul>
   );

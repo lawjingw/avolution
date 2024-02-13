@@ -27,7 +27,7 @@ function MenuItem({ item }) {
         <div className="h-56">
           <img src={item.image} alt="image" className="h-full w-full" />
         </div>
-        <h2 className="text-lg">{item.name}</h2>
+        <h2 className="px-2 text-lg">{item.name}</h2>
       </div>
 
       <div className="mx-4 mb-4 flex flex-col space-y-4">
