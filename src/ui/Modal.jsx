@@ -37,7 +37,7 @@ function Window({ name, children }) {
   if (openName !== name) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-10 h-screen w-full bg-black/75 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 h-screen w-full bg-black/75 backdrop-blur-sm">
       <div
         ref={modalRef}
         className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg"

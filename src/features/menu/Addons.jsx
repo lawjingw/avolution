@@ -26,13 +26,15 @@ function Addons({ item }) {
   const totalPrice = quantity * item.price + addonsPrice;
 
   const increaseAddons = (addition) => {
-    const existingItem = addons.find((item) => item.id === addition.id);
+    const existingItem = addons.find(
+      (item) => item.additionId === addition.additionId,
+    );
     let newAddons = [];
 
     if (!existingItem) newAddons = [...addons, addition];
     else
       newAddons = addons.map((addon) => {
-        if (addition.id === addon.id) {
+        if (addition.additionId === addon.additionId) {
           return { ...addon, quantity: addon.quantity + 1 };
         } else {
           return addon;
@@ -42,27 +44,27 @@ function Addons({ item }) {
   };
 
   const decreaseAddons = (id) => {
-    const existingItem = addons.find((item) => item.id === id);
+    const existingItem = addons.find((item) => item.additionId === id);
     let newAddons = [];
     const newQuantity = existingItem.quantity - 1;
 
     if (newQuantity > 0) {
       newAddons = addons.map((addon) => {
-        if (id === addon.id) {
+        if (id === addon.additionId) {
           return { ...addon, quantity: newQuantity };
         } else {
           return addon;
         }
       });
     } else {
-      newAddons = addons.filter((addition) => addition.id !== id);
+      newAddons = addons.filter((addition) => addition.additionId !== id);
     }
 
     setAddons(newAddons);
   };
 
   const findAddonQuantityById = (id) =>
-    addons.find((item) => item.id === id)?.quantity;
+    addons.find((item) => item.additionId === id)?.quantity;
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);

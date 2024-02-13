@@ -3,11 +3,14 @@ import Modal from "../../ui/Modal";
 import { formatCurrency } from "../../utils/helpers";
 import ImageLabel from "./ImageLabel";
 import Addons from "./Addons";
-import { useDispatch } from "react-redux";
-import { addItem } from "../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, selectAddonQuantityById } from "../cart/cartSlice";
 
 function MenuItem({ item }) {
   const dispatch = useDispatch();
+  const quantity = useSelector((state) =>
+    selectAddonQuantityById(state, item.id),
+  );
 
   const handleAddToCart = () => {
     dispatch(
@@ -15,14 +18,15 @@ function MenuItem({ item }) {
         itemId: item.id,
         name: item.name,
         unitPrice: item.price,
-        quantity: "1",
+        quantity: 1,
+        addons: [],
         totalPrice: item.price,
       }),
     );
   };
 
   return (
-    <div className="flex basis-64 flex-col justify-between overflow-hidden rounded-3xl bg-white text-center">
+    <div className="flex basis-64 flex-col justify-between overflow-hidden rounded-3xl bg-white text-center hover:outline hover:outline-2 hover:outline-color-1">
       <div className="mb-5">
         <div className="h-56">
           <img src={item.image} alt="image" className="h-full w-full" />
@@ -34,13 +38,17 @@ function MenuItem({ item }) {
         <ImageLabel labels={item.labels} />
         <p className="text-lg">{formatCurrency(item.price)}</p>
         {item.additions.length === 0 ? (
-          <Button onClick={handleAddToCart}>Order</Button>
+          <Button onClick={handleAddToCart} number={quantity}>
+            Order
+          </Button>
         ) : (
           <Modal>
             <Modal.Open
               opens="addOns"
               renderItem={(handleClick) => (
-                <Button onClick={handleClick}>Order</Button>
+                <Button onClick={handleClick} number={quantity}>
+                  Order
+                </Button>
               )}
             />
             <Modal.Window name="addOns">

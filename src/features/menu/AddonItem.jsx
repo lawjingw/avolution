@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import RoundButton from "./RoundButton";
 import { AddonsContext } from "./AddonsContext";
 
@@ -10,7 +10,7 @@ function AddonItem({ addition }) {
 
   const handleIncreaseAddons = () => {
     const addon = {
-      id: addition.id,
+      additionId: addition.id,
       name: addition.name,
       price: addition.price,
       quantity: 1,
