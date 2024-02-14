@@ -3,6 +3,7 @@ import { ModalContext } from "./ModalContext";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import { useOutsideClick } from "../hooks/useOutsideClick";
+import { useTransition, animated } from "@react-spring/web";
 
 function Modal({ children }) {
   const [openName, setOpenName] = useState("");
@@ -33,21 +34,32 @@ function Open({ opens, renderItem }) {
 function Window({ name, children }) {
   const { openName, close } = useContext(ModalContext);
   const modalRef = useOutsideClick(close);
-
-  if (openName !== name) return null;
+  const isVisible = openName === name;
+  const transitions = useTransition(isVisible, {
+    from: { x: "-50%", y: "-100%", opacity: 0 },
+    enter: { y: "-50%", opacity: 1 },
+    leave: { y: "-100%", opacity: 0 },
+  });
 
   return createPortal(
-    <div className="fixed inset-0 z-50 h-screen w-full bg-black/75 backdrop-blur-sm">
-      <div
-        ref={modalRef}
-        className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg"
-      >
-        <button onClick={close} className="absolute right-3 top-3">
-          <HiXMark className="stroke-1 text-lg" />
-        </button>
-        {children}
-      </div>
-    </div>,
+    transitions((style, isVisible) =>
+      isVisible ? (
+        <div className="fixed inset-0 z-50 h-screen w-full bg-black/75 backdrop-blur-sm">
+          <animated.div
+            style={style}
+            ref={modalRef}
+            className="fixed left-1/2 top-1/2 bg-white shadow-lg"
+          >
+            <button onClick={close} className="absolute right-3 top-3">
+              <HiXMark className="stroke-1 text-lg" />
+            </button>
+            {children}
+          </animated.div>
+        </div>
+      ) : (
+        ""
+      ),
+    ),
     document.body,
   );
 }

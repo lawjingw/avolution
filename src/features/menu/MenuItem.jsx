@@ -26,7 +26,7 @@ function MenuItem({ item }) {
   };
 
   return (
-    <div className="flex basis-64 flex-col justify-between overflow-hidden rounded-3xl bg-white text-center hover:outline hover:outline-2 hover:outline-color-1">
+    <div className="hover:outline-3 flex basis-64 flex-col justify-between overflow-hidden rounded-3xl bg-white text-center hover:outline hover:outline-color-1">
       <div className="mb-5">
         <div className="h-56">
           <img src={item.image} alt="image" className="h-full w-full" />

@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@hookform/error-message": "^2.0.1",
+    "@react-spring/web": "^9.7.3",
     "@reduxjs/toolkit": "^2.1.0",
     "@supabase/supabase-js": "^2.39.3",
     "localforage": "^1.10.0",
