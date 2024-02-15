@@ -9,7 +9,7 @@ export default function Menu() {
 
   return (
     <section className="bg-color-2 pb-16 pt-32 sm:py-16">
-      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] grid-rows-[auto_1fr] gap-8 px-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_16rem] grid-rows-[auto_1fr] gap-8 px-4">
         <NavCapsule />
         <Cart />
         <div>
