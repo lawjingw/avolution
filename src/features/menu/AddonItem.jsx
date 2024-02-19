@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import RoundButton from "./RoundButton";
+import RoundButton from "../../ui/RoundButton";
 import { AddonsContext } from "./AddonsContext";
 
 function AddonItem({ addition }) {

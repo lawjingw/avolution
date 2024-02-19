@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { getMenu } from "../../services/apiRestaurant";
 import MenuCategory from "./MenuCategory";
 import NavCapsule from "./NavCapsule";
-import Cart from "../cart/Cart";
+import Cart from "../cart/cart";
 
 export default function Menu() {
   let menu = useLoaderData();
