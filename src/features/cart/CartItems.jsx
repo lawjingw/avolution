@@ -15,7 +15,9 @@ function CartItems({ cart }) {
     <div className="py-6">
       <div className="space-y-4 overflow-scroll border-y-2 border-stone-100 py-4">
         {cart.map((item) => {
-          return <CartItem item={item} key={item.itemId} />;
+          return (
+            <CartItem item={item} key={`${item.itemId}${item.addons.length}`} />
+          );
         })}
       </div>
       <div className="mt-2 flex justify-between text-sm">

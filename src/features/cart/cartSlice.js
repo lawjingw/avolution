@@ -31,11 +31,17 @@ const cartSlice = createSlice({
       existingItem.quantity--;
       existingItem.totalPrice = existingItem.quantity * existingItem.unitPrice;
 
-      if (existingItem.quantity === 0)
-        state.splice(
-          state.findIndex((item) => item.pizzaId === action.payload),
-          1,
-        );
+      // if (existingItem.quantity === 0)
+      //   state.splice(
+      //     state.findIndex((item) => item.itemId === action.payload),
+      //     1,
+      //   );
+    },
+    removeItem(state, action) {
+      state.splice(
+        state.findIndex((item) => item.itemId === action.payload),
+        1,
+      );
     },
   },
 });
@@ -48,7 +54,11 @@ export const selectAddonQuantityById = (state, id) => {
 export const selectTotlePrice = (state) =>
   state.cart.reduce((acc, cur) => acc + cur.totalPrice, 0);
 
-export const { addItem, increaseItemQuantity, decreaseItemQuantity } =
-  cartSlice.actions;
+export const {
+  addItem,
+  increaseItemQuantity,
+  decreaseItemQuantity,
+  removeItem,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function TipOption({ tip, isActive, handleSetTip }) {
   const handleClick = () => {
     handleSetTip(tip);
