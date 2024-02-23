@@ -42,7 +42,7 @@ function CartItem({ item }) {
       return;
     }
     priceApi.start({
-      from: { scale: 1.5 },
+      from: { scale: 1.3 },
       to: { scale: 1 },
     });
   }, [item.totalPrice, item.quantity, priceApi]);
