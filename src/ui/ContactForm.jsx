@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import FormRow from "./FormRow";
-import Input from "./Input";
 import { useEffect, useState } from "react";
+import TextAreaInput from "./TextAreaInput";
+import TextInput from "./TextInput";
 
 function ContactForm() {
   const {
@@ -34,10 +35,10 @@ function ContactForm() {
         className="grid auto-cols-max grid-cols-1 sm:grid-cols-2 sm:gap-8"
       >
         <FormRow lable="First Name" errors={errors}>
-          <Input
-            type="text"
+          <TextInput
             id="firstName"
             name="firstName"
+            style="round"
             errors={errors}
             register={register("firstName", {
               required: "Name is required",
@@ -46,10 +47,11 @@ function ContactForm() {
           />
         </FormRow>
         <FormRow lable="Last Name" errors={errors}>
-          <Input
+          <TextInput
             type="text"
             id="lastName"
             name="lastName"
+            style="round"
             errors={errors}
             register={register("lastName", {
               required: "Surname is required",
@@ -58,10 +60,11 @@ function ContactForm() {
           />
         </FormRow>
         <FormRow lable="Phone" errors={errors}>
-          <Input
+          <TextInput
             type="tel"
             id="phone"
             name="phone"
+            style="round"
             errors={errors}
             register={register("phone", {
               maxLength: 16,
@@ -73,10 +76,11 @@ function ContactForm() {
           />
         </FormRow>
         <FormRow lable="Email" errors={errors}>
-          <Input
+          <TextInput
             type="text"
             id="email"
             name="email"
+            style="round"
             errors={errors}
             register={register("email", {
               required: "Email is required",
@@ -84,7 +88,7 @@ function ContactForm() {
           />
         </FormRow>
         <FormRow lable="Message" className="sm:col-span-2" errors={errors}>
-          <Input
+          <TextAreaInput
             type="textarea"
             id="message"
             name="message"

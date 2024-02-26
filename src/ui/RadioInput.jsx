@@ -1,4 +1,12 @@
-function RadioInput({ id, name, label, icon, isChecked = false }) {
+function RadioInput({
+  id,
+  name,
+  label,
+  icon,
+  register,
+  value,
+  isDefaultChecked = false,
+}) {
   return (
     <label
       className="has-[:checked]:border-color-1 has-[:checked]:border-2 flex cursor-pointer items-center justify-start rounded-md border-2 px-4 py-3"
@@ -9,7 +17,9 @@ function RadioInput({ id, name, label, icon, isChecked = false }) {
         type="radio"
         id={id}
         name={name}
-        defaultChecked={isChecked}
+        value={value}
+        defaultChecked={isDefaultChecked}
+        {...register}
       />
       <p className="ml-4">{label}</p>
       {icon}

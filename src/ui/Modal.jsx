@@ -44,11 +44,11 @@ function Window({ name, children }) {
   return createPortal(
     transitions((style, isVisible) =>
       isVisible ? (
-        <div className="fixed inset-0 z-50 h-screen w-full bg-black/75 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 h-screen w-full overflow-scroll bg-black/75 backdrop-blur-sm">
           <animated.div
             style={style}
             ref={modalRef}
-            className="fixed left-1/2 top-1/2 bg-white shadow-lg"
+            className="fixed left-1/2 top-1/2 max-h-screen bg-white shadow-lg"
           >
             <button onClick={close} className="absolute right-3 top-3">
               <HiXMark className="stroke-1 text-lg" />

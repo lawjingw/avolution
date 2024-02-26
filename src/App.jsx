@@ -17,7 +17,11 @@ let router = createBrowserRouter([
       { path: "aboutUs", Component: AboutUs },
       { path: "gallery", Component: Gallery },
       { path: "contact", Component: Contact },
-      { path: "orderOnline", Component: OrderOnline, loader: menuLoader },
+      {
+        path: "orderOnline",
+        Component: OrderOnline,
+        loader: menuLoader,
+      },
     ],
   },
 ]);
