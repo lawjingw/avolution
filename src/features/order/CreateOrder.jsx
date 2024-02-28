@@ -4,27 +4,26 @@ import FormRow from "../../ui/FormRow";
 import { IoCardOutline, IoCashOutline } from "react-icons/io5";
 import TextInput from "../../ui/TextInput";
 import { useContext, useEffect } from "react";
-import { useFetcher } from "react-router-dom";
+import { useFetcher, useNavigation, useSubmit } from "react-router-dom";
 import CartItems from "../cart/CartItems";
 import EmptyCart from "../cart/EmptyCart";
-import { ModalContext } from "../../ui/ModalContext";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../cart/cartSlice";
 
 function CreateOrder({ cart }) {
-  const fetcher = useFetcher();
+  const navigation = useNavigation();
+  const submit = useSubmit();
   const dispatch = useDispatch();
-  const { close } = useContext(ModalContext);
   const {
     register,
     unregister,
     formState: { errors },
     handleSubmit,
     watch,
+    reset,
   } = useForm();
 
-  let isSubmitting = fetcher.state === "submitting";
-  let isSuccess = fetcher.data?.ok;
+  const isSubmitting = navigation.state === "submitting";
 
   const showAddress = watch("type", "delivery") === "delivery";
   useEffect(() => {
@@ -40,15 +39,10 @@ function CreateOrder({ cart }) {
   }, [showAddress, unregister]);
 
   const onSubmit = (data) => {
-    fetcher.submit({ ...data, cart: JSON.stringify(cart) }, { method: "post" });
+    submit({ ...data, cart: JSON.stringify(cart) }, { method: "post" });
     dispatch(clearCart());
+    reset();
   };
-
-  useEffect(() => {
-    if (isSuccess) {
-      close();
-    }
-  }, [close, isSuccess]);
 
   return (
     <div className="w-[1100px] bg-stone-100 px-4 py-10">

@@ -1,9 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useLoaderData } from "react-router-dom";
-import { createOrder, getMenu } from "../../services/apiRestaurant";
+import {
+  createOrder,
+  getMenu,
+  getOrderById,
+} from "../../services/apiRestaurant";
 import MenuCategory from "./MenuCategory";
 import NavCapsule from "./NavCapsule";
 import Cart from "../cart/cart";
+import SearchOrder from "../order/SearchOrder";
 
 export default function Menu() {
   let menu = useLoaderData();
@@ -12,7 +17,10 @@ export default function Menu() {
     <section className="bg-color-2 pb-16 pt-32 sm:py-16">
       <div className="mx-auto grid max-w-6xl grid-cols-[1fr_16rem] grid-rows-[auto_1fr] gap-8 px-4">
         <NavCapsule />
-        <Cart />
+        <div className="row-span-2 space-y-4">
+          <SearchOrder />
+          <Cart />
+        </div>
         <div>
           <MenuCategory menu={menu} name="appetizer" title="appetizer" />
           <MenuCategory menu={menu} name="soup" title="soup" />
@@ -37,9 +45,20 @@ export async function menuAction({ request }) {
   if (intent === "create") {
     formData.delete("intent");
     const data = Object.fromEntries(formData);
-    const newData = { ...data, cart: JSON.parse(data.cart) };
-    await createOrder(newData);
+    const newData = {
+      ...data,
+      cart: JSON.parse(data.cart),
+      orderId: Date.now(),
+    };
+    const newOrder = await createOrder(newData);
+    return newOrder.orderId;
   }
 
-  return { ok: true };
+  if (intent === "query") {
+    const orderId = formData.get("query");
+    const order = await getOrderById(orderId);
+    return order;
+  }
+
+  throw { message: "Invalid intent" };
 }
