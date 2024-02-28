@@ -1,4 +1,12 @@
-function TextInput({ style = "normal", id, name, errors, register }) {
+function TextInput({
+  style = "normal",
+  id,
+  name,
+  defaultValue,
+  errors,
+  register,
+  isReadOnly = false,
+}) {
   const baseSytle =
     "border border-solid px-4 py-2 transition-shadow focus:outline-none";
 
@@ -19,8 +27,10 @@ function TextInput({ style = "normal", id, name, errors, register }) {
       type="text"
       id={id}
       name={name}
+      defaultValue={defaultValue}
       {...register}
       className={className}
+      readOnly={isReadOnly}
     />
   );
 }

@@ -6,7 +6,7 @@ export async function getMenu() {
     .select(`*, additions (id, name, price)`);
 
   if (error) {
-    console.log(error.details);
+    console.log(error.message);
     throw new Error("Menu could not be loaded");
   }
 
@@ -20,7 +20,7 @@ export async function createOrder(orderObj) {
     .select();
 
   if (error) {
-    console.log(error.details);
+    console.log(error.message);
     throw new Error("Order could not be created");
   }
 

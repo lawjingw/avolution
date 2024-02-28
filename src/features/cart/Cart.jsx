@@ -23,7 +23,7 @@ function Cart() {
           )}
         />
         <Modal.Window name="addOns">
-          <CreateOrder />
+          <CreateOrder cart={cart} />
         </Modal.Window>
       </Modal>
     </div>

@@ -5,7 +5,9 @@ function TipOption({ tip, isActive, handleSetTip }) {
 
   return (
     <li className={`grow py-1 text-center ${isActive ? "bg-stone-200" : ""}`}>
-      <button onClick={handleClick}>{tip * 100}%</button>
+      <button type="button" onClick={handleClick} className="w-full">
+        {tip * 100}%
+      </button>
     </li>
   );
 }

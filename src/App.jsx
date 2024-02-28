@@ -6,7 +6,7 @@ import AboutUs from "./pages/AboutUs";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import OrderOnline from "./pages/OrderOnline";
-import { menuLoader } from "./features/menu/Menu";
+import { menuAction, menuLoader } from "./features/menu/Menu";
 
 let router = createBrowserRouter([
   {
@@ -21,6 +21,7 @@ let router = createBrowserRouter([
         path: "orderOnline",
         Component: OrderOnline,
         loader: menuLoader,
+        action: menuAction,
       },
     ],
   },

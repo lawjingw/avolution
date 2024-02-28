@@ -1,5 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useLoaderData } from "react-router-dom";
-import { getMenu } from "../../services/apiRestaurant";
+import { createOrder, getMenu } from "../../services/apiRestaurant";
 import MenuCategory from "./MenuCategory";
 import NavCapsule from "./NavCapsule";
 import Cart from "../cart/cart";
@@ -24,8 +25,21 @@ export default function Menu() {
   );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export async function menuLoader() {
   const menu = await getMenu();
   return menu;
+}
+
+export async function menuAction({ request }) {
+  let formData = await request.formData();
+  const intent = formData.get("intent");
+
+  if (intent === "create") {
+    formData.delete("intent");
+    const data = Object.fromEntries(formData);
+    const newData = { ...data, cart: JSON.parse(data.cart) };
+    await createOrder(newData);
+  }
+
+  return { ok: true };
 }
