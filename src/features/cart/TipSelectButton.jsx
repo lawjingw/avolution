@@ -1,25 +1,25 @@
-import { useState } from "react";
 import TipOption from "./TipOption";
+import { useDispatch } from "react-redux";
+import { addTip } from "./cartSlice";
 
 const tips = [0, 0.1, 0.2, 0.3];
 
-function TipSelectButton({ totalPrice, onSetTip }) {
-  const [activeIndex, setActiveIndex] = useState(1);
+function TipSelectButton({ tip }) {
+  const dispatch = useDispatch();
 
   const handleSetTip = (tip) => {
-    onSetTip(totalPrice * tip);
-    setActiveIndex(tip);
+    dispatch(addTip(tip));
   };
 
   return (
     <ul className="flex divide-x-2 overflow-hidden rounded-full border-2 border-stone-200">
-      {tips.map((tip) => {
+      {tips.map((t) => {
         return (
           <TipOption
-            tip={tip}
+            tip={t}
             handleSetTip={handleSetTip}
-            isActive={tip === activeIndex}
-            key={tip}
+            isActive={t === tip}
+            key={t}
           />
         );
       })}

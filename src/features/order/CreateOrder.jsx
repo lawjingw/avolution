@@ -3,17 +3,20 @@ import RadioInput from "../../ui/RadioInput";
 import FormRow from "../../ui/FormRow";
 import { IoCardOutline, IoCashOutline } from "react-icons/io5";
 import TextInput from "../../ui/TextInput";
-import { useContext, useEffect } from "react";
-import { useFetcher, useNavigation, useSubmit } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigation, useSubmit } from "react-router-dom";
 import CartItems from "../cart/CartItems";
 import EmptyCart from "../cart/EmptyCart";
-import { useDispatch } from "react-redux";
-import { clearCart } from "../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, selectTotlePrice } from "../cart/cartSlice";
 
 function CreateOrder({ cart }) {
   const navigation = useNavigation();
   const submit = useSubmit();
   const dispatch = useDispatch();
+  const totalPrice = useSelector((state) => selectTotlePrice(state));
+  const tip = useSelector((state) => state.cart.tip);
+  const finalPrice = totalPrice + totalPrice * tip;
   const {
     register,
     unregister,
@@ -39,7 +42,16 @@ function CreateOrder({ cart }) {
   }, [showAddress, unregister]);
 
   const onSubmit = (data) => {
-    submit({ ...data, cart: JSON.stringify(cart) }, { method: "post" });
+    submit(
+      {
+        ...data,
+        cart: JSON.stringify(cart),
+        tip: tip,
+        totalPrice: totalPrice,
+        finalPrice: finalPrice,
+      },
+      { method: "post" },
+    );
     dispatch(clearCart());
     reset();
   };

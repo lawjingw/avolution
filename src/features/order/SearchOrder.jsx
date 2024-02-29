@@ -34,6 +34,7 @@ function SearchOrder() {
                   value={query}
                   onChange={(e) => setQuery(e.currentTarget.value)}
                   placeholder="Search order #"
+                  maxLength="13"
                   className="rounded-md border border-solid px-4 py-2 transition-shadow focus:shadow-input focus:outline-none"
                 />
                 <input type="text" name="intent" defaultValue="query" hidden />

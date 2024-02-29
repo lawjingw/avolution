@@ -17,6 +17,7 @@ function MenuItem({ item }) {
       addItem({
         itemId: item.id,
         name: item.name,
+        category: item.category,
         unitPrice: item.price,
         quantity: 1,
         addons: [],

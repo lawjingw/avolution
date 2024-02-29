@@ -3,7 +3,7 @@ import AddonItem from "./AddonItem";
 import { AddonsContext } from "./AddonsContext";
 
 function AddonItems() {
-  const {additions} = useContext(AddonsContext);
+  const { additions } = useContext(AddonsContext);
   return (
     <ul className="flex flex-col justify-between space-y-4 py-1">
       {additions.map((addition) => {

@@ -5,9 +5,10 @@ import { FaAngleRight } from "react-icons/fa6";
 import CartItems from "./CartItems";
 import Modal from "../../ui/Modal";
 import CreateOrder from "../order/CreateOrder";
+import { selectCartItems } from "./cartSlice";
 
 function Cart() {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => selectCartItems(state));
 
   return (
     <div className="sticky top-4 flex h-fit flex-col rounded-3xl bg-white px-5 py-6 shadow-lg">

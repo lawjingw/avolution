@@ -54,9 +54,9 @@ function CartItem({ item }) {
           {item.quantity > 0 ? item.quantity : 1} x {item.name}
         </p>
         {item.addons.length
-          ? item.addons.map((addition) => {
+          ? item.addons.map((addition, i) => {
               return (
-                <p className="text-xs" key={addition.additionId}>
+                <p className="text-xs" key={`${addition.additionId}${i}`}>
                   + {addition.name} ({formatCurrency(addition.price)})
                 </p>
               );
