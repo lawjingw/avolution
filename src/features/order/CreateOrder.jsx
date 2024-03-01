@@ -3,16 +3,16 @@ import RadioInput from "../../ui/RadioInput";
 import FormRow from "../../ui/FormRow";
 import { IoCardOutline, IoCashOutline } from "react-icons/io5";
 import TextInput from "../../ui/TextInput";
-import { useEffect } from "react";
-import { useNavigation, useSubmit } from "react-router-dom";
+import { useFetcher } from "react-router-dom";
 import CartItems from "../cart/CartItems";
 import EmptyCart from "../cart/EmptyCart";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, selectTotlePrice } from "../cart/cartSlice";
+import Order from "./Order";
+import { useEffect } from "react";
 
 function CreateOrder({ cart }) {
-  const navigation = useNavigation();
-  const submit = useSubmit();
+  const fetcher = useFetcher();
   const dispatch = useDispatch();
   const totalPrice = useSelector((state) => selectTotlePrice(state));
   const tip = useSelector((state) => state.cart.tip);
@@ -26,7 +26,7 @@ function CreateOrder({ cart }) {
     reset,
   } = useForm();
 
-  const isSubmitting = navigation.state === "submitting";
+  const isSubmitting = fetcher.state === "submitting";
 
   const showAddress = watch("type", "delivery") === "delivery";
   useEffect(() => {
@@ -42,7 +42,7 @@ function CreateOrder({ cart }) {
   }, [showAddress, unregister]);
 
   const onSubmit = (data) => {
-    submit(
+    fetcher.submit(
       {
         ...data,
         cart: JSON.stringify(cart),
@@ -55,6 +55,8 @@ function CreateOrder({ cart }) {
     dispatch(clearCart());
     reset();
   };
+
+  if (fetcher.data) return <Order order={fetcher.data} />;
 
   return (
     <div className="w-[1100px] bg-stone-100 px-4 py-10">

@@ -51,7 +51,7 @@ export async function menuAction({ request }) {
       orderId: Date.now(),
     };
     const newOrder = await createOrder(newData);
-    return newOrder.orderId;
+    return newOrder;
   }
 
   if (intent === "query") {

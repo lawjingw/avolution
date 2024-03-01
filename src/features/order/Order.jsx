@@ -4,7 +4,18 @@ import OrderRow from "./OrderRow";
 function Order({ order }) {
   const tip = order.totalPrice * order.tip;
   return (
-    <div className="w-[1100px] bg-stone-100 px-4 py-10">
+    <div className="w-[1100px] space-y-4 bg-stone-100 px-4 py-10">
+      <div className="flex justify-center space-x-8 bg-white px-6 py-4">
+        <div>
+          <img src="hourglass.svg" alt="" />
+        </div>
+        <div className="space-y-1">
+          <p className="text-2xl font-semibold">Accepted for completion</p>
+          <p className="text-sm font-bold text-stone-500">
+            Your order will be ready within - 10 min
+          </p>
+        </div>
+      </div>
       <div className="bg-white px-6 py-4">
         <h2 className="text-lg font-semibold">
           Your order <span className="text-blue-500">#{order.orderId}</span>

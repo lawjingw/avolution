@@ -17,7 +17,7 @@ export async function createOrder(orderObj) {
   const { data, error } = await supabase
     .from("order")
     .insert([{ ...orderObj }])
-    .select("orderId")
+    .select()
     .limit(1)
     .single();
 

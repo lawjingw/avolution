@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../../ui/Modal";
 import Order from "./Order";
 import { useFetcher } from "react-router-dom";
+import { HiOutlineSearch } from "react-icons/hi";
 
 function SearchOrder() {
   const [query, setQuery] = useState("");
@@ -16,6 +17,10 @@ function SearchOrder() {
     }
   };
 
+  useEffect(() => {
+    if (fetcher.data) setQuery("");
+  }, [fetcher.data]);
+
   return (
     <div className="rounded-3xl bg-white px-5 py-6 shadow-lg">
       <Modal>
@@ -27,7 +32,10 @@ function SearchOrder() {
           <Modal.Open
             opens="order"
             renderItem={(handleClick) => (
-              <form onSubmit={(e) => handleSubmit(e, handleClick)}>
+              <form
+                onSubmit={(e) => handleSubmit(e, handleClick)}
+                className="relative"
+              >
                 <input
                   type="text"
                   name="query"
@@ -38,12 +46,14 @@ function SearchOrder() {
                   className="rounded-md border border-solid px-4 py-2 transition-shadow focus:shadow-input focus:outline-none"
                 />
                 <input type="text" name="intent" defaultValue="query" hidden />
-                <button hidden />
+                <button type="submit" className="absolute bottom-3 right-1">
+                  <HiOutlineSearch className="stroke-stone-400 text-lg" />
+                </button>
               </form>
             )}
           />
         )}
-        {!isSubmitting && (
+        {fetcher.data && (
           <Modal.Window name="order">
             <Order order={fetcher.data} />
           </Modal.Window>

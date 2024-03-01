@@ -23,40 +23,10 @@ function Addons({ item }) {
   const totalPrice = quantity * item.price + addonsPrice;
 
   const increaseAddons = (addition) => {
-    //const newAddons = [...addons, addition];
-    // const existingItem = addons.find(
-    //   (item) => item.additionId === addition.additionId,
-    // );
-    // let newAddons = [];
-
-    // if (!existingItem) newAddons = [...addons, addition];
-    // else
-    //   newAddons = addons.map((addon) => {
-    //     if (addition.additionId === addon.additionId) {
-    //       return { ...addon, quantity: addon.quantity + 1 };
-    //     } else {
-    //       return addon;
-    //     }
-    //   });
     setAddons([...addons, addition]);
   };
 
   const decreaseAddons = (id) => {
-    // const existingItem = addons.find((item) => item.additionId === id);
-    // let newAddons = [];
-    // const newQuantity = existingItem.quantity - 1;
-
-    // if (newQuantity > 0) {
-    //   newAddons = addons.map((addon) => {
-    //     if (id === addon.additionId) {
-    //       return { ...addon, quantity: newQuantity };
-    //     } else {
-    //       return addon;
-    //     }
-    //   });
-    // } else {
-    //   newAddons = addons.filter((addition) => addition.additionId !== id);
-    // }
     const delIndex = addons.findIndex((addition) => addition.additionId === id);
     const newAddons = addons.filter((addition, i) => i !== delIndex);
     setAddons(newAddons);
