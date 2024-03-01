@@ -55,9 +55,13 @@ export async function menuAction({ request }) {
   }
 
   if (intent === "query") {
-    const orderId = formData.get("query");
-    const order = await getOrderById(orderId);
-    return order;
+    try {
+      const orderId = formData.get("query");
+      const order = await getOrderById(orderId);
+      return { order: order, ok: "success" };
+    } catch (error) {
+      return { order: null, ok: "fail" };
+    }
   }
 
   throw { message: "Invalid intent" };

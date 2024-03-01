@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ModalContext } from "./ModalContext";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
@@ -10,12 +10,10 @@ function Modal({ children }) {
 
   const open = (name) => {
     setOpenName(name);
-    document.body.classList.add("overflow-hidden");
   };
 
   const close = () => {
     setOpenName("");
-    document.body.classList.remove("overflow-hidden");
   };
 
   return (
@@ -40,6 +38,13 @@ function Window({ name, children }) {
     enter: { y: "-50%", opacity: 1 },
     leave: { y: "-100%", opacity: 0 },
   });
+
+  useEffect(() => {
+    isVisible && document.body.classList.add("overflow-hidden");
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isVisible]);
 
   return createPortal(
     transitions((style, isVisible) =>

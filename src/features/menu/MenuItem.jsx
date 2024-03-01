@@ -46,8 +46,8 @@ function MenuItem({ item }) {
           <Modal>
             <Modal.Open
               opens="addOns"
-              renderItem={(handleClick) => (
-                <Button onClick={handleClick} number={quantity}>
+              renderItem={(open) => (
+                <Button onClick={open} number={quantity}>
                   Order
                 </Button>
               )}

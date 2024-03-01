@@ -3,22 +3,24 @@ import Modal from "../../ui/Modal";
 import Order from "./Order";
 import { useFetcher } from "react-router-dom";
 import { HiOutlineSearch } from "react-icons/hi";
+import toast from "react-hot-toast";
 
 function SearchOrder() {
   const [query, setQuery] = useState("");
   const fetcher = useFetcher();
   const isSubmitting = fetcher.state === "submitting";
 
-  const handleSubmit = (e, handleClick) => {
+  const handleSubmit = (e, open) => {
     e.preventDefault();
     if (query) {
       fetcher.submit(e.currentTarget, { method: "post" });
-      handleClick();
+      open();
     }
   };
 
   useEffect(() => {
-    if (fetcher.data) setQuery("");
+    fetcher.data && setQuery("");
+    fetcher.data?.ok === "fail" && toast(`Order #${query} has not found.`);
   }, [fetcher.data]);
 
   return (
@@ -31,9 +33,9 @@ function SearchOrder() {
         ) : (
           <Modal.Open
             opens="order"
-            renderItem={(handleClick) => (
+            renderItem={(open) => (
               <form
-                onSubmit={(e) => handleSubmit(e, handleClick)}
+                onSubmit={(e) => handleSubmit(e, open)}
                 className="relative"
               >
                 <input
@@ -53,9 +55,9 @@ function SearchOrder() {
             )}
           />
         )}
-        {fetcher.data && (
+        {!isSubmitting && fetcher.data?.ok === "success" && (
           <Modal.Window name="order">
-            <Order order={fetcher.data} />
+            <Order order={fetcher.data.order} />
           </Modal.Window>
         )}
       </Modal>

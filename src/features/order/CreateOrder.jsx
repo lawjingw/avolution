@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart, selectTotlePrice } from "../cart/cartSlice";
 import Order from "./Order";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 function CreateOrder({ cart }) {
   const fetcher = useFetcher();
@@ -42,18 +43,22 @@ function CreateOrder({ cart }) {
   }, [showAddress, unregister]);
 
   const onSubmit = (data) => {
-    fetcher.submit(
-      {
-        ...data,
-        cart: JSON.stringify(cart),
-        tip: tip,
-        totalPrice: totalPrice,
-        finalPrice: finalPrice,
-      },
-      { method: "post" },
-    );
-    dispatch(clearCart());
-    reset();
+    if (cart.length) {
+      fetcher.submit(
+        {
+          ...data,
+          cart: JSON.stringify(cart),
+          tip: tip,
+          totalPrice: totalPrice,
+          finalPrice: finalPrice,
+        },
+        { method: "post" },
+      );
+      dispatch(clearCart());
+      reset();
+    } else {
+      toast.error("Cart is empty. Add menu items.");
+    }
   };
 
   if (fetcher.data) return <Order order={fetcher.data} />;

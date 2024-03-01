@@ -6,9 +6,14 @@ import CartItems from "./CartItems";
 import Modal from "../../ui/Modal";
 import CreateOrder from "../order/CreateOrder";
 import { selectCartItems } from "./cartSlice";
+import toast from "react-hot-toast";
 
 function Cart() {
   const cart = useSelector((state) => selectCartItems(state));
+
+  const handleOpen = (open) => {
+    cart.length ? open() : toast.error("Cart is empty. Add menu items.");
+  };
 
   return (
     <div className="sticky top-4 flex h-fit flex-col rounded-3xl bg-white px-5 py-6 shadow-lg">
@@ -17,8 +22,8 @@ function Cart() {
       <Modal>
         <Modal.Open
           opens="create-order"
-          renderItem={(handleClick) => (
-            <Button onClick={handleClick}>
+          renderItem={(open) => (
+            <Button onClick={() => handleOpen(open)}>
               Go to checkout <FaAngleRight className="inline text-sm" />
             </Button>
           )}
