@@ -22,7 +22,9 @@ function CartItems({ cart }) {
       </div>
       <div className="mb-1 mt-2 flex justify-between text-sm">
         <span className="font-semibold">Tip</span>
-        <span className="font-semibold">{formatCurrency(tip)}</span>
+        <span className="font-semibold">
+          {formatCurrency(totalPrice * tip)}
+        </span>
       </div>
       <TipSelectButton tip={tip} />
       <div className="mt-2 flex justify-between text-sm">

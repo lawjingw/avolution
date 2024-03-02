@@ -12,7 +12,7 @@ function TipSelectButton({ tip }) {
   };
 
   return (
-    <ul className="flex divide-x-2 overflow-hidden rounded-full border-2 border-stone-200">
+    <ul className="flex divide-x divide-stone-600 overflow-hidden rounded-full border border-stone-600">
       {tips.map((t) => {
         return (
           <TipOption
