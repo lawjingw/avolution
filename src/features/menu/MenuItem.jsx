@@ -27,10 +27,14 @@ function MenuItem({ item }) {
   };
 
   return (
-    <div className="hover:outline-3 flex basis-64 flex-col justify-between overflow-hidden rounded-3xl bg-white text-center hover:outline hover:outline-color-1">
+    <div className="flex basis-full flex-col justify-between overflow-hidden rounded-3xl bg-white text-center hover:outline hover:outline-4 hover:outline-color-1 sm:basis-64">
       <div className="mb-5">
         <div className="h-56">
-          <img src={item.image} alt="image" className="h-full w-full" />
+          <img
+            src={item.image}
+            alt="image"
+            className="h-full w-full object-cover"
+          />
         </div>
         <h2 className="px-2 text-lg">{item.name}</h2>
       </div>

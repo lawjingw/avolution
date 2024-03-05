@@ -6,7 +6,7 @@ function OrderOnlineHeader() {
           <h1 className="mt-7 text-5xl leading-[1.1] text-color-1 lg:text-7xl">
             Our menu
           </h1>
-          <h4 className="mb-4 mt-9 text-xl leading-[1.1] text-color-6 lg:text-3xl">
+          <h4 className="mb-4 mt-9 text-center text-xl leading-[1.1] text-color-6 sm:text-start lg:text-3xl">
             See our offer with door-to-door delivery
           </h4>
         </div>

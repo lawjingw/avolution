@@ -25,7 +25,7 @@ export default function Navbar() {
             <div className="relative flex items-center justify-between">
               <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-full border-2 border-slate-300 p-2 px-3 py-2 text-color-1">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-full border-2 border-slate-300 px-3 py-2 text-color-1">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -107,7 +107,7 @@ export default function Navbar() {
                     <SlArrowRight className="inline" />
                   </Disclosure.Button>
                 ))}
-                <div className="mx-2 border-t-2 pt-3">
+                <div className="mx-2 flex border-t-2 pt-3 text-center">
                   <OrderOnlineButton device="mobile" />
                 </div>
               </div>

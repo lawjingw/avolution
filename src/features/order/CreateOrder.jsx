@@ -11,9 +11,11 @@ import { clearCart, selectTotlePrice } from "../cart/cartSlice";
 import Order from "./Order";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import { FaLocationCrosshairs } from "react-icons/fa6";
 
 function CreateOrder({ cart }) {
-  const fetcher = useFetcher();
+  const formFetcher = useFetcher();
+  const addressFetcher = useFetcher();
   const dispatch = useDispatch();
   const totalPrice = useSelector((state) => selectTotlePrice(state));
   const tip = useSelector((state) => state.cart.tip);
@@ -25,9 +27,11 @@ function CreateOrder({ cart }) {
     handleSubmit,
     watch,
     reset,
+    setValue,
   } = useForm();
 
-  const isSubmitting = fetcher.state === "submitting";
+  const isSubmitting = formFetcher.state === "submitting";
+  const isLocating = addressFetcher.state === "submitting";
 
   const showAddress = watch("type", "delivery") === "delivery";
   useEffect(() => {
@@ -44,7 +48,7 @@ function CreateOrder({ cart }) {
 
   const onSubmit = (data) => {
     if (cart.length) {
-      fetcher.submit(
+      formFetcher.submit(
         {
           ...data,
           cart: JSON.stringify(cart),
@@ -61,7 +65,24 @@ function CreateOrder({ cart }) {
     }
   };
 
-  if (fetcher.data) return <Order order={fetcher.data} />;
+  const getLocation = () => {
+    addressFetcher.submit(
+      {
+        intent: "address",
+      },
+      { method: "post" },
+    );
+  };
+
+  useEffect(() => {
+    if (addressFetcher.data) {
+      setValue("city", addressFetcher.data.city);
+      setValue("county", addressFetcher.data.county);
+      setValue("postcode", addressFetcher.data.postcode);
+    }
+  }, [addressFetcher.data]);
+
+  if (formFetcher.data) return <Order order={formFetcher.data} />;
 
   return (
     <div className="w-[1100px] bg-stone-100 px-4 py-10">
@@ -116,7 +137,18 @@ function CreateOrder({ cart }) {
           </div>
           {showAddress && (
             <div className="bg-white px-6 py-4">
-              <h2 className="mb-6 text-lg font-semibold">Address</h2>
+              <div className="flex justify-between">
+                <h2 className="mb-6 text-lg font-semibold">Address</h2>
+                <a
+                  href="#"
+                  onClick={getLocation}
+                  disabled={isLocating}
+                  className="flex items-center text-color-1 transition-colors hover:text-black"
+                >
+                  <FaLocationCrosshairs className="mr-1 inline-block" />
+                  Use my location
+                </a>
+              </div>
               <div className="grid grid-cols-2 gap-4">
                 <FormRow
                   lable="Address Line 1"
@@ -126,6 +158,7 @@ function CreateOrder({ cart }) {
                   <TextInput
                     id="addressLineOne"
                     name="addressLineOne"
+                    isDisabled={isLocating}
                     errors={errors}
                     register={register("addressLineOne", {
                       required: "Address line 1 is required",
@@ -140,6 +173,7 @@ function CreateOrder({ cart }) {
                   <TextInput
                     id="addressLineTwo"
                     name="addressLineTwo"
+                    isDisabled={isLocating}
                     errors={errors}
                     register={register("addressLineTwo", {
                       maxLength: {
@@ -153,6 +187,7 @@ function CreateOrder({ cart }) {
                   <TextInput
                     id="city"
                     name="city"
+                    isDisabled={isLocating}
                     errors={errors}
                     register={register("city", {
                       required: "City is required",
@@ -167,6 +202,7 @@ function CreateOrder({ cart }) {
                   <TextInput
                     id="county"
                     name="county"
+                    isDisabled={isLocating}
                     errors={errors}
                     register={register("county", {
                       maxLength: {
@@ -180,6 +216,7 @@ function CreateOrder({ cart }) {
                   <TextInput
                     id="country"
                     name="country"
+                    isDisabled={isLocating}
                     isReadOnly={true}
                     defaultValue="United Kingdom"
                     register={register("country")}
@@ -189,6 +226,7 @@ function CreateOrder({ cart }) {
                   <TextInput
                     id="postcode"
                     name="postcode"
+                    isDisabled={isLocating}
                     errors={errors}
                     register={register("postcode", {
                       required: "Postcode is required",

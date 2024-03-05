@@ -6,6 +6,7 @@ function TextInput({
   errors,
   register,
   isReadOnly = false,
+  isDisabled = false,
 }) {
   const baseSytle =
     "border border-solid px-4 py-2 transition-shadow focus:outline-none";
@@ -31,6 +32,7 @@ function TextInput({
       {...register}
       className={className}
       readOnly={isReadOnly}
+      disabled={isDisabled}
     />
   );
 }

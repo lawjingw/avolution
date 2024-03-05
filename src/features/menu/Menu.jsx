@@ -9,15 +9,16 @@ import MenuCategory from "./MenuCategory";
 import NavCapsule from "./NavCapsule";
 import Cart from "../cart/cart";
 import SearchOrder from "../order/SearchOrder";
+import { getAddress } from "../../services/apiGeocoding";
 
 export default function Menu() {
   let menu = useLoaderData();
 
   return (
-    <section className="bg-color-2 pb-16 pt-32 sm:py-16">
-      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_16rem] grid-rows-[auto_1fr] gap-8 px-4">
+    <section className="bg-color-2 py-8 sm:py-16">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 sm:grid sm:grid-cols-[1fr_16rem] sm:grid-rows-[auto_1fr] sm:gap-8">
         <NavCapsule />
-        <div className="row-span-2 space-y-4">
+        <div className="row-span-2 hidden space-y-4 sm:block">
           <SearchOrder />
           <Cart />
         </div>
@@ -64,5 +65,30 @@ export async function menuAction({ request }) {
     }
   }
 
+  if (intent === "address") {
+    // 1) We get the user's geolocation position
+    const positionObj = await getPosition();
+    const position = {
+      latitude: positionObj.coords.latitude,
+      longitude: positionObj.coords.longitude,
+    };
+
+    // 2) Then we use a reverse geocoding API to get a description of the user's address, so we can display it the order form, so that the user can correct it if wrong
+    const addressObj = await getAddress(position);
+
+    // 3) Then we return an object with the data that we are interested in
+    return {
+      city: addressObj.city,
+      county: addressObj.locality,
+      postcode: addressObj.postcode,
+    };
+  }
+
   throw { message: "Invalid intent" };
+}
+
+function getPosition() {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
 }
