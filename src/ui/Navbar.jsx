@@ -2,7 +2,7 @@ import { Disclosure, Transition } from "@headlessui/react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
-import { SlArrowRight } from "react-icons/sl";
+import { RiArrowRightSLine } from "react-icons/ri";
 import { Fragment } from "react";
 import OrderOnlineButton from "./OrderOnlineButton";
 
@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="fixed w-full bg-color-2 shadow-md sm:static sm:shadow-none"
+      className="fixed z-40 w-full bg-color-2 shadow-md sm:static sm:shadow-none"
     >
       {({ open }) => (
         <>
@@ -104,7 +104,7 @@ export default function Navbar() {
                     >
                       {item.name}
                     </span>
-                    <SlArrowRight className="inline" />
+                    <RiArrowRightSLine className="inline" />
                   </Disclosure.Button>
                 ))}
                 <div className="mx-2 flex border-t-2 pt-3 text-center">

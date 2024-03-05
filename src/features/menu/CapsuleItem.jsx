@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
 
-function CapsuleItem({ name, children }) {
+function CapsuleItem({ name, capsultItemRef, children }) {
   const [active, setActive] = useState(false);
 
   const handleActive = () => {
@@ -13,7 +13,7 @@ function CapsuleItem({ name, children }) {
   };
 
   return (
-    <li>
+    <li ref={capsultItemRef}>
       <Link
         to={name}
         smooth={true}
@@ -22,7 +22,7 @@ function CapsuleItem({ name, children }) {
         offset={-200}
         onSetActive={handleActive}
         onSetInactive={handleInActive}
-        className={`inline-block whitespace-nowrap rounded-full bg-color-1 px-6 py-3 hover:cursor-pointer hover:bg-opacity-100 ${
+        className={`inline-block whitespace-nowrap rounded-full bg-color-1 px-4 py-2 sm:px-6 sm:py-3 sm:hover:cursor-pointer sm:hover:bg-opacity-100 ${
           active ? "bg-opacity-100" : "bg-opacity-10"
         }`}
       >

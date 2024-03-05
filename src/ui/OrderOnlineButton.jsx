@@ -9,6 +9,13 @@ function OrderOnlineButton({ device }) {
 
   const className = `${base} ${style[device]}`;
 
+  if (device === "mobile")
+    return (
+      <a className={className} href="orderOnline">
+        Order online
+      </a>
+    );
+
   return (
     <Link className={className} to="orderOnline">
       Order online
