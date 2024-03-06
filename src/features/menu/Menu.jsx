@@ -10,6 +10,7 @@ import NavCapsule from "./NavCapsule";
 import Cart from "../cart/cart";
 import SearchOrder from "../order/SearchOrder";
 import { getAddress } from "../../services/apiGeocoding";
+import CartOverview from "../cart/CartOverview";
 
 export default function Menu() {
   let menu = useLoaderData();
@@ -29,6 +30,7 @@ export default function Menu() {
           <MenuCategory menu={menu} name="dessert" title="dessert" />
           <MenuCategory menu={menu} name="drink" title="drink" />
         </div>
+        <CartOverview />
       </div>
     </section>
   );

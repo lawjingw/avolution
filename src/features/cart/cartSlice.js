@@ -58,6 +58,9 @@ export const selectAddonQuantityById = (state, id) => {
   return items?.reduce((acc, cur) => acc + cur.quantity, 0);
 };
 
+export const selectTotalQuantity = (state) =>
+  state.cart.cartItems?.reduce((acc, cur) => acc + cur.quantity, 0);
+
 export const selectTotlePrice = (state) =>
   state.cart.cartItems.reduce((acc, cur) => acc + cur.totalPrice, 0);
 

@@ -64,9 +64,9 @@ function Addons({ item }) {
   };
 
   return (
-    <div className="flex w-[600px] flex-col justify-between space-y-6 px-6 pt-6">
-      <h2 className="text-3xl font-semibold">{item.name}</h2>
-      <div className="w-[600px] self-center bg-stone-200 px-6 py-4">
+    <div className="flex flex-col justify-between space-y-6 pt-6 sm:w-[600px] sm:px-6">
+      <h2 className="px-4 text-3xl font-semibold sm:px-0">{item.name}</h2>
+      <div className="w-full self-center bg-stone-200 px-4 py-4 sm:w-[600px] sm:px-6">
         <h3 className="text-xl">Addons&#32;&#40;Maximum&#58;&#32;2&#41;</h3>
       </div>
       <AddonsContext.Provider
@@ -80,19 +80,21 @@ function Addons({ item }) {
       >
         <AddonItems />
       </AddonsContext.Provider>
-      <div className="flex w-[600px] items-center justify-between self-center px-6 py-4 shadow-[0_-3px_6px_rgba(51,51,51,0.2)]">
-        <div className="flex">
-          <HalfRoundButton side="l" onClick={decreaseQuantity}>
-            -
-          </HalfRoundButton>
-          <p className="inline-block w-14 border-y border-stone-300 py-1.5 text-center">
-            {quantity}
-          </p>
-          <HalfRoundButton side="r" onClick={increaseQuantity}>
-            +
-          </HalfRoundButton>
+      <div className="flex w-full flex-col justify-between gap-3 self-center px-4 py-4 shadow-[0_-3px_6px_rgba(51,51,51,0.2)] sm:w-[600px] sm:flex-row sm:px-6">
+        <div className="flex items-center justify-between sm:space-x-28">
+          <div className="flex">
+            <HalfRoundButton side="l" onClick={decreaseQuantity}>
+              -
+            </HalfRoundButton>
+            <p className="inline-block w-14 border-y border-stone-300 py-1.5 text-center">
+              {quantity}
+            </p>
+            <HalfRoundButton side="r" onClick={increaseQuantity}>
+              +
+            </HalfRoundButton>
+          </div>
+          <p className="text-lg">{formatCurrency(totalPrice)}</p>
         </div>
-        <p className="text-lg">{formatCurrency(totalPrice)}</p>
         <Button onClick={handleAddToCart}>Add to cart</Button>
       </div>
     </div>
