@@ -48,11 +48,15 @@ function CartItem({ item }) {
   }, [item.totalPrice, item.quantity, priceApi]);
 
   return (
-    <animated.div style={itemStyle} className="flex justify-between space-x-3">
+    <animated.div
+      style={itemStyle}
+      className="flex justify-between space-x-3 py-4"
+    >
       <div>
-        <p className="text-sm">
+        <p className="hidden text-sm sm:block">
           {item.quantity > 0 ? item.quantity : 1} x {item.name}
         </p>
+        <p className="sm:hidden">{item.name}</p>
         {item.addons.length
           ? item.addons.map((addition, i) => {
               return (
@@ -63,13 +67,13 @@ function CartItem({ item }) {
             })
           : ""}
       </div>
-      <div>
-        <animated.div style={priceStyle} className="text-sm">
+      <div className="space-y-2 sm:space-y-1">
+        <animated.div style={priceStyle} className="text-end text-sm">
           {formatCurrency(item.totalPrice)}
         </animated.div>
-
-        <div className="flex space-x-1">
+        <div className="flex items-center space-x-2 sm:space-x-1">
           <RoundButton onClick={handleDecreaseItemQuantity}>-</RoundButton>
+          <p className="sm:hidden">{item.quantity}</p>
           <RoundButton onClick={handleIncreaseItemQuantity}>+</RoundButton>
         </div>
       </div>

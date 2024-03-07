@@ -85,10 +85,10 @@ function CreateOrder({ cart }) {
   if (formFetcher.data) return <Order order={formFetcher.data} />;
 
   return (
-    <div className="w-[1100px] bg-stone-100 px-4 py-10">
+    <div className="w-full bg-stone-100 px-4 py-10 sm:w-[1100px]">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex justify-between space-x-12"
+        className="flex flex-col justify-between gap-6 sm:flex-row sm:gap-12"
       >
         <div className="basis-full space-y-6">
           <div className="row-span-2 bg-white px-6 py-4">
@@ -154,6 +154,7 @@ function CreateOrder({ cart }) {
                   lable="Address Line 1"
                   isRequired={true}
                   errors={errors}
+                  className="col-span-2 sm:col-auto"
                 >
                   <TextInput
                     id="addressLineOne"
@@ -169,7 +170,11 @@ function CreateOrder({ cart }) {
                     })}
                   />
                 </FormRow>
-                <FormRow lable="Address Line 2" errors={errors}>
+                <FormRow
+                  lable="Address Line 2"
+                  errors={errors}
+                  className="col-span-2 sm:col-auto"
+                >
                   <TextInput
                     id="addressLineTwo"
                     name="addressLineTwo"
@@ -242,7 +247,7 @@ function CreateOrder({ cart }) {
           )}
           <div className="bg-white px-6 py-4">
             <h2 className="mb-4 text-lg font-semibold">Contact</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <FormRow lable="First name" isRequired={true} errors={errors}>
                 <TextInput
                   id="firstName"
@@ -311,11 +316,11 @@ function CreateOrder({ cart }) {
         </div>
         <div className="basis-[30rem] space-y-6">
           {isSubmitting ? (
-            <div className="col-start-2 row-start-1 flex items-center justify-center bg-white py-8">
+            <div className="flex items-center justify-center bg-white py-8">
               <div className="loader"></div>
             </div>
           ) : (
-            <div className="col-start-2 row-start-1 bg-white px-6 py-4">
+            <div className="bg-white px-6 py-4">
               <h2 className="text-lg font-semibold">Your order</h2>
               {!cart.length ? <EmptyCart /> : <CartItems cart={cart} />}
             </div>
@@ -324,7 +329,7 @@ function CreateOrder({ cart }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="col-start-2 row-span-3 row-start-2 h-fit w-full rounded-md bg-color-1 py-3 text-lg text-color-2 duration-300 hover:bg-opacity-50 hover:text-black"
+            className="h-fit w-full rounded-md bg-color-1 py-3 text-lg text-color-2 duration-300 hover:bg-opacity-50 hover:text-black"
           >
             {isSubmitting ? "Sending order..." : "Create order"}
           </button>
