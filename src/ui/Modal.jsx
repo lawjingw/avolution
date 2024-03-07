@@ -7,7 +7,6 @@ import { useTransition, animated } from "@react-spring/web";
 
 function Modal({ children }) {
   const [openName, setOpenName] = useState("");
-
   const open = (name) => {
     setOpenName(name);
   };

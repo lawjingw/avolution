@@ -4,13 +4,15 @@ import OrderRow from "./OrderRow";
 function Order({ order }) {
   const tip = order.totalPrice * order.tip;
   return (
-    <div className="w-[1100px] space-y-4 bg-stone-100 px-4 py-10">
-      <div className="flex justify-center space-x-8 bg-white px-6 py-4">
+    <div className="w-full space-y-4 bg-stone-100 px-4 py-10 sm:w-[1100px]">
+      <div className="flex items-center justify-center space-x-8 bg-white px-6 py-4">
         <div>
           <img src="hourglass.svg" alt="" />
         </div>
         <div className="space-y-1">
-          <p className="text-2xl font-semibold">Accepted for completion</p>
+          <p className="text-xl font-semibold sm:text-2xl">
+            Accepted for completion
+          </p>
           <p className="text-sm font-bold text-stone-500">
             Your order will be ready within - 10 min
           </p>
@@ -20,8 +22,8 @@ function Order({ order }) {
         <h2 className="text-lg font-semibold">
           Your order <span className="text-blue-500">#{order.orderId}</span>
         </h2>
-        <div className="flex justify-between space-x-16 text-sm font-medium">
-          <div className="basis-3/5">
+        <div className="flex flex-col justify-between text-sm font-medium sm:flex-row sm:space-x-16">
+          <div className="sm:basis-3/5">
             <table className="w-full border-separate border-spacing-y-3">
               <tbody className="align-top">
                 {order.cart.map((item, i) => {
@@ -65,7 +67,7 @@ function Order({ order }) {
               </tbody>
             </table>
           </div>
-          <div className="basis-2/5">
+          <div className="sm:basis-2/5">
             <table className="w-full border-separate border-spacing-y-3">
               <tbody className="align-top">
                 <tr>

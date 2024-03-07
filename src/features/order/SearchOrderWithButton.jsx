@@ -1,34 +1,38 @@
-import { useContext, useEffect, useState } from "react";
-import Modal from "../../ui/Modal";
+import { useEffect, useState } from "react";
 import Order from "./Order";
 import { useFetcher } from "react-router-dom";
-import { HiOutlineSearch } from "react-icons/hi";
-import toast from "react-hot-toast";
-import { ModalContext } from "../../ui/ModalContext";
+import Button from "../../ui/Button";
 
-function SearchOrder() {
-  const { open } = useContext(ModalContext);
+function SearchOrderWithButton() {
   const [query, setQuery] = useState("");
   const fetcher = useFetcher();
   const isSubmitting = fetcher.state === "submitting";
 
+  console.log(isSubmitting);
+  console.log(fetcher.data);
+
   useEffect(() => {
     fetcher.data?.ok && setQuery("");
-    fetcher.data?.ok === "fail" && toast(`Order #${query} has not found.`);
   }, [fetcher.data]);
+
+  if (fetcher.data?.ok === "success")
+    return <Order order={fetcher.data.order} />;
 
   return (
     <div className="bg-white px-5 py-6 shadow-lg sm:rounded-3xl">
+      {fetcher.data?.ok === "fail" && (
+        <div className="mb-4 rounded-full bg-orange-200 bg-opacity-50">
+          <p className="px-3 py-2 text-sm text-amber-600">
+            Order has not been found
+          </p>
+        </div>
+      )}
       {isSubmitting ? (
         <div className="flex items-center justify-center bg-white">
           <div className="loader"></div>
         </div>
       ) : (
-        <fetcher.Form
-          onSubmit={() => open("order")}
-          className="relative"
-          method="post"
-        >
+        <fetcher.Form className="relative" method="post">
           <input
             type="text"
             name="query"
@@ -39,24 +43,13 @@ function SearchOrder() {
             className="w-full rounded-md border border-solid px-4 py-2 transition-shadow focus:shadow-input focus:outline-none"
           />
           <input type="text" name="intent" defaultValue="query" hidden />
-
-          <button
-            type="submit"
-            disabled={!query}
-            className="absolute bottom-3 right-3"
-          >
-            <HiOutlineSearch className="stroke-stone-400 text-lg" />
-          </button>
+          <div className="mt-4 flex flex-col">
+            <Button isDisabled={!query}>Search</Button>
+          </div>
         </fetcher.Form>
-      )}
-
-      {!isSubmitting && fetcher.data?.ok === "success" && (
-        <Modal.Window name="order">
-          <Order order={fetcher.data.order} />
-        </Modal.Window>
       )}
     </div>
   );
 }
 
-export default SearchOrder;
+export default SearchOrderWithButton;

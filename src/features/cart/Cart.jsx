@@ -19,23 +19,18 @@ function Cart() {
     <div className="sticky top-4 flex h-fit flex-col bg-white px-4 py-6 shadow-lg sm:rounded-3xl sm:px-5">
       <h1 className="text-2xl">Your order</h1>
       {!cart.length ? <EmptyCart /> : <CartItems cart={cart} />}
-      <Modal>
-        <Modal.Open
-          opens="create-order"
-          renderItem={(open) => (
-            <Button
-              onClick={() => handleOpen(open)}
-              isDisabled={cart.length < 1}
-            >
-              Go to checkout&nbsp;
-              <FaAngleRight className="inline-block text-sm" />
-            </Button>
-          )}
-        />
-        <Modal.Window name="create-order">
-          <CreateOrder cart={cart} />
-        </Modal.Window>
-      </Modal>
+      <Modal.Open
+        opens="create-order"
+        renderItem={(open) => (
+          <Button onClick={() => handleOpen(open)} isDisabled={cart.length < 1}>
+            Go to checkout&nbsp;
+            <FaAngleRight className="inline-block text-sm" />
+          </Button>
+        )}
+      />
+      <Modal.Window name="create-order">
+        <CreateOrder cart={cart} />
+      </Modal.Window>
     </div>
   );
 }
