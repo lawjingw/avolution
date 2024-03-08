@@ -10,7 +10,7 @@ import { FaAngleRight } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 
 import Modal from "../../ui/Modal";
-import Cart from "./cart";
+import Cart from "./Cart";
 import Button from "../../ui/Button";
 import CreateOrder from "../order/CreateOrder";
 import SearchOrderWithButton from "../order/SearchOrderWithButton";
