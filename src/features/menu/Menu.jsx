@@ -7,7 +7,7 @@ import {
 } from "../../services/apiRestaurant";
 import MenuCategory from "./MenuCategory";
 import NavCapsule from "./NavCapsule";
-import Cart from "../cart/cart";
+import Cart from "../cart/Cart";
 import SearchOrder from "../order/SearchOrder";
 import { getAddress } from "../../services/apiGeocoding";
 import CartOverview from "../cart/CartOverview";
