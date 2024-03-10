@@ -57,7 +57,7 @@ function Window({ name, children }) {
   return createPortal(
     transition((style, isVisible) =>
       isVisible ? (
-        <div className="fixed inset-0 z-50 h-screen w-full overflow-scroll bg-black/75 backdrop-blur-sm">
+        <div className="fixed left-0 top-0 z-50 h-screen w-full overflow-scroll bg-black/75 backdrop-blur-sm">
           <animated.div
             style={style}
             ref={modalRef}

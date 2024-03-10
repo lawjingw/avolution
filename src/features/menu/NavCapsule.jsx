@@ -18,7 +18,7 @@ function NavCapsule() {
   });
 
   return (
-    <div className="sticky top-24 z-10 rounded-full bg-white shadow-lg sm:top-4">
+    <div className="sticky top-24 z-20 rounded-full bg-white shadow-lg sm:top-4">
       <div className="relative flex items-center px-2 py-2 sm:px-4 sm:py-4">
         <ul
           ref={ulRef}
