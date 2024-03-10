@@ -85,7 +85,7 @@ function CreateOrder({ cart }) {
   if (formFetcher.data) return <Order order={formFetcher.data} />;
 
   return (
-    <div className="w-full bg-stone-100 px-4 py-10 sm:w-[1100px]">
+    <div className="bg-stone-100 px-4 py-5 sm:w-[1100px] sm:py-10">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col justify-between gap-6 sm:flex-row sm:gap-12"

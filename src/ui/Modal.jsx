@@ -57,11 +57,11 @@ function Window({ name, children }) {
   return createPortal(
     transition((style, isVisible) =>
       isVisible ? (
-        <div className="fixed left-0 top-0 z-50 h-screen w-full overflow-scroll bg-black/75 backdrop-blur-sm">
+        <div className="fixed left-0 top-0 z-50 h-screen w-full overflow-y-scroll bg-black/75 backdrop-blur-sm">
           <animated.div
             style={style}
             ref={modalRef}
-            className="fixed top-10 max-h-screen w-full bg-white shadow-lg sm:left-1/2 sm:top-1/2 sm:mx-0 sm:w-auto"
+            className="relative top-10 mx-auto max-h-screen w-[90%] bg-white shadow-lg sm:fixed sm:left-1/2 sm:top-1/2 sm:w-auto"
           >
             <button
               onClick={close}

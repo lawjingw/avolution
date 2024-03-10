@@ -4,7 +4,7 @@ import OrderRow from "./OrderRow";
 function Order({ order }) {
   const tip = order.totalPrice * order.tip;
   return (
-    <div className="w-full space-y-4 bg-stone-100 px-4 py-10 sm:w-[1100px]">
+    <div className="space-y-4 bg-stone-100 px-4 py-10 sm:w-[1100px]">
       <div className="flex items-center justify-center space-x-8 bg-white px-6 py-4">
         <div>
           <img src="hourglass.svg" alt="" />
