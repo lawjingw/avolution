@@ -9,17 +9,16 @@ function HomeSectionThree() {
   return (
     <section className="py-8 sm:py-16">
       <div
-        ref={blockRef}
-        className={`mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 text-center sm:flex-row sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
-          inView ? "sm:!opacity-100" : ""
+        className={`mx-auto flex max-w-6xl flex-col items-center gap-7 px-4 text-center opacity-0 transition-opacity duration-500 ease-in sm:flex-row ${
+          inView ? "!opacity-100" : ""
         }`}
       >
         <div className="mb-1 mt-7 basis-1/4">
-          <div>
+          <div ref={blockRef}>
             <h3 className="px-1 text-[28px] leading-[1.1] text-color-1 lg:text-4xl">
               Healthy and delicious food
             </h3>
-            <p className="text-color-10 mt-6 font-medium leading-6">
+            <p className="mt-6 font-medium leading-6 text-color-10">
               We combine health with taste. We cook healthily, and all dishes on
               our menu are low in calories.
             </p>
@@ -28,7 +27,7 @@ function HomeSectionThree() {
             <h3 className="px-1 text-[28px] leading-[1.1] text-color-1 lg:text-4xl">
               Sugar-free sweet desserts
             </h3>
-            <p className="text-color-10 mt-6 font-medium leading-6">
+            <p className="mt-6 font-medium leading-6 text-color-10">
               Is it possible to eat sweets while on a diet? Yes! All our
               desserts are healthy! Instead of sugar, we use the natural
               sweetness of fruits.
@@ -47,7 +46,7 @@ function HomeSectionThree() {
             <h3 className="px-1 text-[28px] leading-[1.1] text-color-1 lg:text-4xl">
               Aromatic coffee
             </h3>
-            <p className="text-color-10 mt-6 font-medium leading-6">
+            <p className="mt-6 font-medium leading-6 text-color-10">
               Coffee from freshly roasted and carefully selected beans tastes
               delicious every day. Come and try it!
             </p>
@@ -56,7 +55,7 @@ function HomeSectionThree() {
             <h3 className="px-1 text-[28px] leading-[1.1] text-color-1 lg:text-4xl">
               The power of freshness
             </h3>
-            <p className="text-color-10 mt-6 font-medium leading-6">
+            <p className="mt-6 font-medium leading-6 text-color-10">
               We carefully select our ingredients. We only order fresh and
               quality products from local suppliers, including vegetables and
               fruits.

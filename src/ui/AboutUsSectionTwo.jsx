@@ -10,8 +10,8 @@ function HomeSectionFour() {
     <section className="py-10 sm:py-20">
       <div
         ref={blockRef}
-        className={`mx-auto flex max-w-xl flex-col items-center py-2 text-center sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
-          inView ? "sm:!opacity-100" : ""
+        className={`mx-auto flex max-w-xl flex-col items-center py-2 text-center opacity-0 transition-opacity duration-500 ease-in ${
+          inView ? "!opacity-100" : ""
         }`}
       >
         <h4 className="mt-7 text-xl text-color-6 lg:text-3xl">
