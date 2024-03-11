@@ -1,6 +1,6 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Fragment } from "react";
@@ -88,12 +88,12 @@ export default function Navbar() {
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2">
                 {navigation.map((item) => (
-                  <Disclosure.Button
+                  <Link
                     key={item.name}
-                    as="a"
-                    href={item.href}
+                    to={item.href}
                     className="flex items-center justify-between rounded-full px-6 py-2 text-base font-medium transition duration-300 hover:bg-color-3"
                     aria-current={item.current ? "page" : undefined}
+                    reloadDocument
                   >
                     <span
                       className={
@@ -105,7 +105,7 @@ export default function Navbar() {
                       {item.name}
                     </span>
                     <RiArrowRightSLine className="inline" />
-                  </Disclosure.Button>
+                  </Link>
                 ))}
                 <div className="mx-2 flex border-t-2 pt-3 text-center">
                   <OrderOnlineButton device="mobile" />
