@@ -12,11 +12,11 @@ function ContactSectionTwo() {
   });
 
   return (
-    <section className="bg-color-4 py-8 sm:py-16">
+    <section className="bg-color-4 py-8 md:py-16">
       <div
         ref={blockRef}
-        className={`mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
-          inView ? "sm:!opacity-100" : ""
+        className={`mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 md:flex-row md:opacity-0 md:transition-opacity md:duration-500 md:ease-in ${
+          inView ? "md:!opacity-100" : ""
         }`}
       >
         <div>

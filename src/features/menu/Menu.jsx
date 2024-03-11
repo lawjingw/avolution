@@ -17,15 +17,15 @@ export default function Menu() {
   let menu = useLoaderData();
 
   return (
-    <section className="bg-color-2 py-8 sm:py-16">
+    <section className="bg-color-2 py-8 md:py-16">
       <Modal>
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:grid sm:grid-cols-[1fr_16rem] sm:grid-rows-[auto_1fr] sm:gap-8 sm:px-4">
+        <div className="mx-auto flex flex-col gap-4 md:grid md:max-w-[800px] md:grid-cols-[1fr_16rem] md:grid-rows-[auto_1fr] md:gap-8 md:px-4 lg:max-w-[870px] min-[1150px]:max-w-6xl">
           <NavCapsule />
-          <div className="row-span-2 hidden space-y-4 sm:block">
+          <div className="row-span-2 hidden space-y-4 md:block">
             <SearchOrder />
             <Cart />
           </div>
-          <div className="px-4 sm:px-0">
+          <div className="px-4 md:px-0">
             <MenuCategory menu={menu} name="appetizer" title="appetizer" />
             <MenuCategory menu={menu} name="soup" title="soup" />
             <MenuCategory menu={menu} name="mainCourse" title="main course" />

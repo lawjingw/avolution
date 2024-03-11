@@ -17,13 +17,13 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="fixed z-40 w-full bg-color-2 shadow-md sm:static sm:shadow-none"
+      className="fixed z-40 w-full bg-color-2 shadow-md md:static md:shadow-none"
     >
       {({ open }) => (
         <>
-          <div className="mx-2 max-w-6xl px-2 py-5 sm:mx-auto sm:px-4">
+          <div className="mx-2 max-w-6xl px-2 py-5 md:mx-auto md:px-4">
             <div className="relative flex items-center justify-between">
-              <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 right-0 flex items-center md:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-full border-2 border-slate-300 px-3 py-2 text-color-1">
                   <span className="absolute -inset-0.5" />
@@ -42,13 +42,13 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-between">
-                <div className="my-1 hidden flex-shrink-0 items-center sm:flex">
+                <div className="my-1 hidden flex-shrink-0 items-center md:flex">
                   <Logo />
                 </div>
-                <span className="text-3xl font-extrabold sm:hidden">
+                <span className="text-3xl font-extrabold md:hidden">
                   AVOLUTION
                 </span>
-                <div className="hidden sm:block">
+                <div className="hidden md:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <NavLink
@@ -69,7 +69,7 @@ export default function Navbar() {
                     ))}
                   </div>
                 </div>
-                <div className="hidden sm:block">
+                <div className="hidden md:block">
                   <OrderOnlineButton />
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default function Navbar() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Disclosure.Panel className="sm:hidden">
+            <Disclosure.Panel className="md:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2">
                 {navigation.map((item) => (
                   <Link

@@ -8,9 +8,9 @@ function HomeSectionFive() {
   });
 
   return (
-    <section className="bg-color-9 py-8 sm:py-16">
+    <section className="bg-color-9 py-8 md:py-16">
       <div
-        className={`mx-auto flex flex-col items-center justify-between gap-6 opacity-0 transition-opacity duration-500 ease-in sm:flex-row ${
+        className={`mx-auto flex flex-col items-center justify-between gap-6 opacity-0 transition-opacity duration-500 ease-in md:flex-row ${
           inView ? "!opacity-100" : ""
         }`}
       >

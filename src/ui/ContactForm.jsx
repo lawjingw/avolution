@@ -32,7 +32,7 @@ function ContactForm() {
       )}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid auto-cols-max grid-cols-1 sm:grid-cols-2 sm:gap-8"
+        className="grid auto-cols-max grid-cols-1 gap-4 md:grid-cols-2 md:gap-8"
       >
         <FormRow lable="First Name" errors={errors}>
           <TextInput
@@ -87,7 +87,7 @@ function ContactForm() {
             })}
           />
         </FormRow>
-        <FormRow lable="Message" className="sm:col-span-2" errors={errors}>
+        <FormRow lable="Message" className="md:col-span-2" errors={errors}>
           <TextAreaInput
             type="textarea"
             id="message"

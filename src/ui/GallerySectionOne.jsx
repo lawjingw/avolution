@@ -27,7 +27,7 @@ const photos = [
 
 function GallerySectionOne() {
   return (
-    <section className="py-16 sm:py-16">
+    <section className="py-16 md:py-16">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4">
         {photos.map((photo) => (
           <img

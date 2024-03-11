@@ -5,10 +5,11 @@ import Logo from "./Logo";
 function Footer() {
   return (
     <footer className="flex flex-col items-center space-y-10 bg-color-2 py-7">
-      <div className="my-1">
+      <div className="my-1 hidden md:flex">
         <Logo />
       </div>
-      <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+      <span className="text-3xl font-extrabold md:hidden">AVOLUTION</span>
+      <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
         <div className="space-x-4">
           <FaPhoneAlt className="inline-block h-6 w-6" />
           <span>+44 8888 888888</span>

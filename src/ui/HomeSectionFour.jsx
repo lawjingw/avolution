@@ -8,11 +8,11 @@ function HomeSectionFour() {
   });
 
   return (
-    <section className="bg-color-4 py-16 sm:py-32">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 sm:flex-row">
+    <section className="bg-color-4 py-16 md:py-32">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 md:flex-row">
         <div
           ref={blockRef}
-          className={`flex basis-1/2 flex-col items-center py-2 opacity-0 transition-opacity duration-500 ease-in sm:items-start ${
+          className={`flex basis-1/2 flex-col items-center py-2 opacity-0 transition-opacity duration-500 ease-in md:items-start ${
             inView ? "!opacity-100" : ""
           }`}
         >
@@ -30,7 +30,7 @@ function HomeSectionFour() {
           </p>
           <Link
             to="orderOnline"
-            className="mx-auto my-2 mt-6 rounded-full border-2 border-color-1 px-8 py-5 font-inter text-lg text-color-1 sm:mx-0"
+            className="mx-auto my-2 mt-6 rounded-full border-2 border-color-1 px-8 py-5 font-inter text-lg text-color-1 md:mx-0"
           >
             Order online
           </Link>
@@ -43,7 +43,7 @@ function HomeSectionFour() {
           <img
             src="https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/person-1.jpg"
             alt="image"
-            className="w-4/5 rounded-t-[200px]"
+            className="rounded-t-[200px] md:w-3/5 lg:w-4/5"
           />
         </div>
       </div>

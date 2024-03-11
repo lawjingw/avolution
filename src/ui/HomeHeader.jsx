@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 function HomeHeader() {
   const { ref: blockRef, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.8,
     triggerOnce: true,
   });
 
   return (
-    <header className="h-fit bg-white bg-[url('https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/wave.png')] bg-cover bg-fixed bg-[center_top_2rem] pb-16 pt-44 sm:h-auto sm:pb-32 sm:pt-32">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 sm:flex-row">
-        <div className="flex flex-col items-center justify-center px-1 sm:basis-1/2 sm:items-start">
+    <header className="h-fit bg-white bg-[url('https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/wave.png')] bg-cover bg-fixed bg-[center_top_2rem] pb-16 pt-44 md:h-auto md:pb-32 md:pt-32">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 md:flex-row">
+        <div className="flex flex-col items-center justify-center px-1 md:basis-1/2 md:items-start">
           <h1 className="mt-7 text-5xl leading-[1.1] text-color-6 lg:text-7xl">
             The Green Way to Eat, <br />
             <span className="text-color-1">AVOLUTION!</span>
@@ -34,7 +34,7 @@ function HomeHeader() {
           <img
             src="https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/hero.png"
             alt="hero"
-            className="sm:w-full"
+            className="md:w-4/5 lg:w-full"
           />
         </div>
       </div>

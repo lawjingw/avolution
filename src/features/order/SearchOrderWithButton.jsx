@@ -19,7 +19,7 @@ function SearchOrderWithButton() {
     return <Order order={fetcher.data.order} />;
 
   return (
-    <div className="bg-white px-5 py-6 shadow-lg sm:rounded-3xl">
+    <div className="bg-white px-5 py-6 shadow-lg md:rounded-3xl">
       {fetcher.data?.ok === "fail" && (
         <div className="mb-4 rounded-full bg-orange-200 bg-opacity-50">
           <p className="px-3 py-2 text-sm text-amber-600">

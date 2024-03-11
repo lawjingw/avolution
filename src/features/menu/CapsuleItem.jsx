@@ -22,7 +22,7 @@ function CapsuleItem({ name, capsultItemRef, children }) {
         offset={-200}
         onSetActive={handleActive}
         onSetInactive={handleInActive}
-        className={`inline-block whitespace-nowrap rounded-full bg-color-1 px-4 py-2 sm:px-6 sm:py-3 sm:hover:cursor-pointer sm:hover:bg-opacity-100 ${
+        className={`inline-block whitespace-nowrap rounded-full bg-color-1 px-4 py-2 md:px-6 md:py-3 md:hover:cursor-pointer md:hover:bg-opacity-100 ${
           active ? "bg-opacity-100" : "bg-opacity-10"
         }`}
       >

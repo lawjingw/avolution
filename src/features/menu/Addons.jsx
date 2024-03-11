@@ -64,9 +64,9 @@ function Addons({ item }) {
   };
 
   return (
-    <div className="flex flex-col justify-between space-y-6 pt-6 sm:w-[600px] sm:px-6">
-      <h2 className="px-4 text-3xl font-semibold sm:px-0">{item.name}</h2>
-      <div className="w-full self-center bg-stone-200 px-4 py-4 sm:w-[600px] sm:px-6">
+    <div className="flex flex-col justify-between space-y-6 pt-6 md:w-[600px] md:px-6">
+      <h2 className="px-4 text-3xl font-semibold md:px-0">{item.name}</h2>
+      <div className="w-full self-center bg-stone-200 px-4 py-4 md:w-[600px] md:px-6">
         <h3 className="text-xl">Addons&#32;&#40;Maximum&#58;&#32;2&#41;</h3>
       </div>
       <AddonsContext.Provider
@@ -80,8 +80,8 @@ function Addons({ item }) {
       >
         <AddonItems />
       </AddonsContext.Provider>
-      <div className="flex w-full flex-col justify-between gap-3 self-center px-4 py-4 shadow-[0_-3px_6px_rgba(51,51,51,0.2)] sm:w-[600px] sm:flex-row sm:px-6">
-        <div className="flex items-center justify-between sm:space-x-28">
+      <div className="flex w-full flex-col justify-between gap-3 self-center px-4 py-4 shadow-[0_-3px_6px_rgba(51,51,51,0.2)] md:w-[600px] md:flex-row md:px-6">
+        <div className="flex items-center justify-between md:space-x-28">
           <div className="flex">
             <HalfRoundButton side="l" onClick={decreaseQuantity}>
               -

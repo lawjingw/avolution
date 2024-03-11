@@ -18,11 +18,11 @@ function NavCapsule() {
   });
 
   return (
-    <div className="sticky top-24 z-20 rounded-full bg-white shadow-lg sm:top-4">
-      <div className="relative flex items-center px-2 py-2 sm:px-4 sm:py-4">
+    <div className="sticky top-24 z-20 w-full rounded-full bg-white shadow-lg md:top-4 md:w-[480px] lg:w-[540px] min-[1150px]:w-full">
+      <div className="relative flex items-center px-2 py-2 md:px-4 md:py-4">
         <ul
           ref={ulRef}
-          className="no-scrollbar flex items-center space-x-1 overflow-x-scroll scroll-smooth sm:space-x-2"
+          className="no-scrollbar flex items-center space-x-1 overflow-x-scroll scroll-smooth md:space-x-2"
         >
           <CapsuleItem name="appetizer" capsultItemRef={leftArrowRef}>
             Appetizer
@@ -35,7 +35,7 @@ function NavCapsule() {
           </CapsuleItem>
         </ul>
         <div
-          className={`absolute left-2 z-10 w-10 justify-start bg-gradient-to-r from-white py-2 sm:py-3 ${
+          className={`absolute left-2 z-10 w-10 justify-start bg-gradient-to-r from-white py-2 md:py-3 ${
             !leftInView ? "flex" : "hidden"
           }`}
         >
@@ -44,7 +44,7 @@ function NavCapsule() {
           </button>
         </div>
         <div
-          className={`absolute right-2 z-10 flex w-10 items-center justify-end bg-gradient-to-l from-white py-2 sm:py-3 ${
+          className={`absolute right-2 z-10 flex w-10 items-center justify-end bg-gradient-to-l from-white py-2 md:py-3 ${
             !rightInView ? "flex" : "hidden"
           }`}
         >

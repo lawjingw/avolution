@@ -18,7 +18,7 @@ function SearchOrder() {
   }, [fetcher.data]);
 
   return (
-    <div className="bg-white px-5 py-6 shadow-lg sm:rounded-3xl">
+    <div className="bg-white px-5 py-6 shadow-lg md:rounded-3xl">
       {isSubmitting ? (
         <div className="flex items-center justify-center bg-white">
           <div className="loader"></div>

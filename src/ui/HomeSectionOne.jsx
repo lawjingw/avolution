@@ -8,8 +8,8 @@ function HomeSectionOne() {
   });
 
   return (
-    <section className="bg-color-11 py-16 sm:bg-[url('https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/bg.jpg')] sm:bg-cover sm:bg-fixed sm:py-32">
-      <div className="mx-auto flex max-w-6xl flex-col-reverse items-center justify-between gap-8 px-4 sm:flex-row">
+    <section className="bg-color-11 py-16 md:bg-[url('https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/bg.jpg')] md:bg-cover md:bg-fixed md:py-32">
+      <div className="mx-auto flex max-w-6xl flex-col-reverse items-center justify-between gap-8 px-4 md:flex-row">
         <div
           ref={blockRef}
           className={`flex basis-1/2 flex-col items-center opacity-0 transition-all duration-500 ease-in ${
@@ -19,12 +19,12 @@ function HomeSectionOne() {
           <img
             src="https://nvapczplomgjxplmveic.supabase.co/storage/v1/object/public/assets/vegan-2.jpg"
             alt="image"
-            className="w-4/5 rounded-b-[90px] rounded-t-[200px]"
+            className="rounded-b-[90px] rounded-t-[200px] md:w-3/5 lg:w-4/5"
           />
         </div>
         <div
-          className={`flex basis-1/2 flex-col items-center py-2 sm:items-start sm:opacity-0 sm:transition-opacity sm:duration-500 sm:ease-in ${
-            inView ? "sm:!opacity-100" : ""
+          className={`flex basis-1/2 flex-col items-center py-2 md:items-start md:opacity-0 md:transition-opacity md:duration-500 md:ease-in ${
+            inView ? "md:!opacity-100" : ""
           }`}
         >
           <h4 className="mb-11 mt-5 text-xl leading-[1.1] text-white lg:text-3xl">

@@ -85,10 +85,10 @@ function CreateOrder({ cart }) {
   if (formFetcher.data) return <Order order={formFetcher.data} />;
 
   return (
-    <div className="bg-stone-100 px-4 py-5 sm:w-[1100px] sm:py-10">
+    <div className="bg-stone-100 px-4 py-5 md:w-[760px] md:py-10 lg:w-[940px] xl:w-[1100px]">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col justify-between gap-6 sm:flex-row sm:gap-12"
+        className="flex flex-col justify-between gap-6 md:flex-row md:gap-12"
       >
         <div className="basis-full space-y-6">
           <div className="row-span-2 bg-white px-6 py-4">
@@ -154,7 +154,7 @@ function CreateOrder({ cart }) {
                   lable="Address Line 1"
                   isRequired={true}
                   errors={errors}
-                  className="col-span-2 sm:col-auto"
+                  className="col-span-2 md:col-auto"
                 >
                   <TextInput
                     id="addressLineOne"
@@ -173,7 +173,7 @@ function CreateOrder({ cart }) {
                 <FormRow
                   lable="Address Line 2"
                   errors={errors}
-                  className="col-span-2 sm:col-auto"
+                  className="col-span-2 md:col-auto"
                 >
                   <TextInput
                     id="addressLineTwo"
@@ -247,7 +247,7 @@ function CreateOrder({ cart }) {
           )}
           <div className="bg-white px-6 py-4">
             <h2 className="mb-4 text-lg font-semibold">Contact</h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <FormRow lable="First name" isRequired={true} errors={errors}>
                 <TextInput
                   id="firstName"

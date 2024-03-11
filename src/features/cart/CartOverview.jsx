@@ -21,7 +21,7 @@ function CartOverview() {
   const totalPrice = useSelector((state) => selectTotlePrice(state));
 
   return (
-    <div className="fixed bottom-0 z-10 flex w-full rounded-t-lg border-t bg-white px-2 sm:hidden">
+    <div className="fixed bottom-0 z-10 flex w-full rounded-t-lg border-t bg-white px-2 md:hidden">
       <div className="flex border-r py-1 pr-2">
         <Modal.Open
           opens="search-order"

@@ -34,15 +34,15 @@ function Window({ name, children }) {
   const isVisible = openName === name;
   const transition = useTransition(isVisible, {
     from: () => {
-      if (window.innerWidth > 640) return { x: "-50%", y: "-100%", opacity: 0 };
+      if (window.innerWidth > 768) return { x: "-50%", y: "-100%", opacity: 0 };
       else return { y: "-20%", opacity: 0 };
     },
     enter: () => {
-      if (window.innerWidth > 640) return { y: "-50%", opacity: 1 };
+      if (window.innerWidth > 768) return { y: "-50%", opacity: 1 };
       else return { y: "0", opacity: 1 };
     },
     leave: () => {
-      if (window.innerWidth > 640) return { y: "-100%", opacity: 0 };
+      if (window.innerWidth > 768) return { y: "-100%", opacity: 0 };
       else return { y: "-20%", opacity: 0 };
     },
   });
@@ -61,13 +61,13 @@ function Window({ name, children }) {
           <animated.div
             style={style}
             ref={modalRef}
-            className="relative top-10 mx-auto max-h-screen w-[90%] bg-white shadow-lg sm:fixed sm:left-1/2 sm:top-1/2 sm:w-auto"
+            className="relative top-10 mx-auto max-h-screen w-[90%] bg-white shadow-lg md:fixed md:left-1/2 md:top-1/2 md:w-auto"
           >
             <button
               onClick={close}
-              className="absolute -top-7 right-1 sm:right-3 sm:top-3"
+              className="absolute -top-7 right-1 md:right-3 md:top-3"
             >
-              <HiXMark className="stroke-1 text-2xl text-white sm:text-black" />
+              <HiXMark className="stroke-1 text-2xl text-white md:text-black" />
             </button>
             {children}
           </animated.div>

@@ -8,9 +8,9 @@ function HomeSectionTwo() {
   });
 
   return (
-    <section className="bg-color-9 py-12 sm:py-24">
+    <section className="bg-color-9 py-12 md:py-24">
       <div
-        className={`mx-auto flex max-w-6xl flex-col items-center justify-between space-y-10 px-4 opacity-0 transition-opacity duration-500 ease-in sm:flex-row sm:space-y-0 ${
+        className={`mx-auto flex max-w-6xl flex-col items-center justify-between space-y-10 px-4 opacity-0 transition-opacity duration-500 ease-in md:flex-row md:space-y-0 ${
           inView ? "!opacity-100" : ""
         }`}
       >

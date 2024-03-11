@@ -11,13 +11,13 @@ function CartItems({ cart }) {
   const totalPrice = useSelector((state) => selectTotlePrice(state));
   const tip = useSelector((state) => state.cart.tip);
   const finalPrice = totalPrice + totalPrice * tip;
-  const tipClass = `sm:block ${
+  const tipClass = `md:block ${
     modalContext?.openName !== "overview-checkout" && "hidden"
   }`;
 
   return (
     <div className="py-6">
-      <div className="divide-y-[1px] overflow-scroll border-y-2 border-stone-100 sm:divide-y-0 sm:divide-stone-100">
+      <div className="divide-y-[1px] overflow-scroll border-y-2 border-stone-100 md:divide-y-0 md:divide-stone-100">
         {cart.map((item, i) => {
           return <CartItem item={item} key={`${item.itemId}${i}`} />;
         })}
@@ -35,9 +35,9 @@ function CartItems({ cart }) {
         </div>
         <TipSelectButton tip={tip} />
       </div>
-      <div className="mt-6 flex items-center justify-between text-sm sm:mt-2">
+      <div className="mt-6 flex items-center justify-between text-sm md:mt-2">
         <span className="font-semibold">TOTAL</span>
-        <span className="text-2xl font-semibold sm:text-base">
+        <span className="text-2xl font-semibold md:text-base">
           {formatCurrency(finalPrice)}
         </span>
       </div>

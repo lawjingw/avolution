@@ -7,7 +7,7 @@ function HomeSectionFour() {
   });
 
   return (
-    <section className="py-10 sm:py-20">
+    <section className="py-10 md:py-20">
       <div
         ref={blockRef}
         className={`mx-auto flex max-w-xl flex-col items-center py-2 text-center opacity-0 transition-opacity duration-500 ease-in ${
