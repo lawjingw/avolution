@@ -34,14 +34,14 @@ Based on the analysis of competitor websites for restaurant businesses, The top 
 
 ## Technologies Used
 ###### React Router:
-**Reason for Choosing: **React Router is a standard library for routing in React applications. It enables the implementation of dynamic routing, which is essential for creating single-page applications (SPAs) with multiple views.
-**Contribution: **React Router contributed to the project by managing the navigation between different pages of the website without the need for page reloads, providing a seamless user experience.
+**Reason for Choosing:** React Router is a standard library for routing in React applications. It enables the implementation of dynamic routing, which is essential for creating single-page applications (SPAs) with multiple views.
+**Contribution:** React Router contributed to the project by managing the navigation between different pages of the website without the need for page reloads, providing a seamless user experience.
 ###### Tailwind CSS:
-**Reason for Choosing: **Tailwind CSS is a utility-first CSS framework that allows for rapid UI development. It offers a wide range of predefined classes that can be composed to build custom designs directly in the markup.
+**Reason for Choosing:** Tailwind CSS is a utility-first CSS framework that allows for rapid UI development. It offers a wide range of predefined classes that can be composed to build custom designs directly in the markup.
 **Contribution:** Tailwind CSS made it possible to style the website efficiently and responsively, ensuring that the design is consistent and adaptive to all screen sizes.
 ###### Redux:
 **Reason for Choosing:** Redux is a popular state management library that provides a predictable state container for JavaScript apps. It helps manage the state of the UI in a centralized store.
-**Contribution: **Redux played a crucial role in managing the global state of the UI, such as the shopping cart and user sessions, making the state easily accessible across components.
+**Contribution:** Redux played a crucial role in managing the global state of the UI, such as the shopping cart and user sessions, making the state easily accessible across components.
 
 ## Reflection and Learning
 Working on the Avolution project was a journey of discovery and growth. Tackling the online ordering system taught me the intricacies of user-focused design and the power of React’s ecosystem. It was a blend of challenges and triumphs that sharpened my technical abilities and deepened my appreciation for the craft of web development. This project wasn’t just about building a website—it was about creating an experience, and I’m proud to have contributed to that.
