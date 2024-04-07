@@ -1,6 +1,6 @@
 # Avolution - A Vegetarian Restaurant Website Redesign
 ## Overview
-Overview: Avolution is a project aimed at revamping the online presence of a vegetarian restaurant. The goal was to create a fresh, modern website that not only highlights the restaurant’s commitment to healthy, plant-based cuisine but also streamlines the online ordering process for customers. 
+Avolution is a project aimed at revamping the online presence of a vegetarian restaurant. The goal was to create a fresh, modern website that not only highlights the restaurant’s commitment to healthy, plant-based cuisine but also streamlines the online ordering process for customers. 
 ## Objective and Goals
 - To design a visually appealing hero page that reflects the restaurant’s brand and values.
 - To develop an intuitive and efficient online ordering system to enhance customer experience.
