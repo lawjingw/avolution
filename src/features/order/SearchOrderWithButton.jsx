@@ -8,9 +8,6 @@ function SearchOrderWithButton() {
   const fetcher = useFetcher();
   const isSubmitting = fetcher.state === "submitting";
 
-  console.log(isSubmitting);
-  console.log(fetcher.data);
-
   useEffect(() => {
     fetcher.data?.ok && setQuery("");
   }, [fetcher.data]);
